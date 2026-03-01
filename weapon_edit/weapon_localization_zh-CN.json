@@ -281,6 +281,16 @@
   "Maliwan Underbarrel-switch between Corrosive and Shock Elements": "元素切换下挂-腐蚀&电击",
   "switch between Incendiary and Shock Elements": "元素切换-燃烧&电击",
   "Maliwan Underbarrel-switch between Incendiary and Shock Elements": "元素切换下挂-燃烧&电击",
+  "Pearl Stat:+Damage -Acc -Reload -FR": "珠光属性:+伤害 -精准 -换弹 -射速",
+  "Pearl Stat:-Damage +Acc +Reload -FR -Mag": "珠光属性:-伤害 +精准 +换弹 -射速 -弹匣",
+  "Pearl Stat:-Damage -Acc -Reload ++FR": "珠光属性:-伤害 -精准 -换弹 ++射速",
+  "Pearl Stat:-Damage +Acc -Reload -FR": "珠光属性:-伤害 +精准 -换弹 -射速",
+  "Pearl Elements:Kinetic Override": "珠光元素:动能覆盖",
+  "Pearl Elements:Shock Override": "珠光元素:电击覆盖",
+  "Pearl Elements:Radiation Override": "珠光元素:辐射覆盖",
+  "Pearl Elements:Corrosive Override": "珠光元素:腐蚀覆盖",
+  "Pearl Elements:Cryo Override": "珠光元素:冰冻覆盖",
+  "Pearl Elements:Incendiary Override": "珠光元素:燃烧覆盖",
   "Select Skin": "选择皮肤",
   "Select a skin to apply": "选择要应用的皮肤"
 }

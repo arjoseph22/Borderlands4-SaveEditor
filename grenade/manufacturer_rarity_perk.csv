@@ -80,6 +80,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 298,8,Legendary Perk,剑鱼,引爆时造成近战伤害
 298,9,Rarity,Legendary,滑溜溜皮肤
 298,10,Perk,托格,撞击敌人时手雷爆炸
+298,11,Legendary Perk,"诱饵","发射干扰弹，转移附近敌人注意力"
+298,12,Rarity,Legendary,"反制措施皮肤"
 311,1,Rarity,Common,
 311,2,Rarity,Uncommon,
 311,3,Rarity,Rare,

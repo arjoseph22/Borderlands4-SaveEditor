@@ -44,3 +44,13 @@ Elemental_ID,Part_ID,Stat
 1,47,Maliwan Underbarrel-switch between Corrosive and Shock Elements
 1,48,switch between Incendiary and Shock Elements
 1,49,Maliwan Underbarrel-switch between Incendiary and Shock Elements
+1,51,Pearl Stat:+Damage -Acc -Reload -FR
+1,52,Pearl Stat:-Damage +Acc +Reload -FR -Mag
+1,53,Pearl Stat:-Damage -Acc -Reload ++FR
+1,54,Pearl Stat:-Damage +Acc -Reload -FR
+1,55,Pearl Elements:Kinetic Override
+1,56,Pearl Elements:Shock Override
+1,57,Pearl Elements:Radiation Override
+1,58,Pearl Elements:Corrosive Override
+1,59,Pearl Elements:Cryo Override
+1,60,Pearl Elements:Incendiary Override

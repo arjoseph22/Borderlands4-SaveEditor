@@ -80,6 +80,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 298,8,Legendary Perk,"Swordfish","Deals melee damage on detonation"
 298,9,Rarity,Legendary,"Slippy skin"
 298,10,Perk,"Torgue","Grenade explodes on impacting enemy"
+298,11,Legendary Perk,"Decoy","Launches flares that distract nearby enemies"
+298,12,Rarity,Legendary,"Countermeasure Skin"
 311,1,Rarity,Common,
 311,2,Rarity,Uncommon,
 311,3,Rarity,Rare,
