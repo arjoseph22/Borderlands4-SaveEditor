@@ -69,7 +69,6 @@ class WeaponEditorTab(QtWidgets.QWidget):
         
         self.all_weapon_parts_df = None
         self.elemental_df = None
-        self.weapon_name_df = None
         self.skin_df = None
         self.weapon_rarity_df = None
         self.weapon_localization = {}
@@ -100,10 +99,13 @@ class WeaponEditorTab(QtWidgets.QWidget):
                 return resource_loader.get_weapon_data_path(base_name)
 
             self.all_weapon_parts_df = pd.read_csv(get_path('all_weapon_part.csv'))
-            self.elemental_df = pd.read_csv(get_path('elemental.csv')) 
-            self.weapon_name_df = pd.read_csv(get_path('weapon_name.csv'))
-            self.skin_df = pd.read_csv(get_path('skin.csv'))
+            self.elemental_df = pd.read_csv(resource_loader.get_weapon_data_path('elemental.csv'))
+            self.elemental_stat_col = 'Stat_ZH' if lang == 'zh-CN' else 'Stat'
+            self.skin_df = pd.read_csv(resource_loader.get_weapon_data_path('skin.csv'))
+            self.skin_df['Skin_ID'] = self.skin_df['Skin_ID'].astype(str)
+            self.skin_stat_col = 'Stat_EN' if lang in ['en-US', 'ru', 'ua'] else 'Stat'
             self.weapon_rarity_df = pd.read_csv(get_path('weapon_rarity.csv'))
+            self.rarity_desc_col = 'Description_ZH' if lang == 'zh-CN' else 'Description'
             
             self.weapon_localization = {}
             if lang == 'zh-CN':
@@ -406,14 +408,18 @@ class WeaponEditorTab(QtWidgets.QWidget):
                 continue
             part_details = self.all_weapon_parts_df[(self.all_weapon_parts_df['Manufacturer & Weapon Type ID'] == m_id) & (self.all_weapon_parts_df['Part ID'] == part_id)]
             if not part_details.empty and part_details.iloc[0]['Part Type'] == 'Barrel':
-                name_info = self.weapon_name_df[(self.weapon_name_df['Manufacturer & Weapon Type ID'] == m_id) & (self.weapon_name_df['Part ID'] == part_id)]
-                if not name_info.empty: weapon_name = name_info.iloc[0]['Name']; break
+                stat_val = str(part_details.iloc[0]['Stat']) if pd.notna(part_details.iloc[0]['Stat']) else ''
+                if stat_val:
+                    weapon_name = stat_val.split(',')[0].strip()
+                    if weapon_name.endswith(' Barrel'):
+                        weapon_name = weapon_name[:-len(' Barrel')]
+                    break
         simple_parts = [p for p in parts if isinstance(p, dict) and p.get('type') == 'simple']
         if simple_parts and 'id' in simple_parts[0]:
             rarity_info = self.weapon_rarity_df[(self.weapon_rarity_df['Manufacturer & Weapon Type ID'] == m_id) & (self.weapon_rarity_df['Part ID'] == simple_parts[0]['id'] )]
             if not rarity_info.empty:
-                details = rarity_info.iloc[0]; rarity, desc = details['Stat'], details['Description']
-                display_rarity = f"{rarity} - {desc}" if rarity == "Legendary" and pd.notna(desc) else rarity
+                details = rarity_info.iloc[0]; rarity, desc = details['Stat'], details[self.rarity_desc_col]
+                display_rarity = f"{rarity} - {desc}" if rarity == "Legendary" and pd.notna(desc) and desc else rarity
                 rarity_part = simple_parts[0]
         if not rarity_part: display_rarity = rarity = "Legendary"
         if rarity_part: remaining_parts = [p for p in remaining_parts if p is not rarity_part]
@@ -421,10 +427,11 @@ class WeaponEditorTab(QtWidgets.QWidget):
 
     def _parse_component_string(self, component_str):
         components, last_index = [], 0
-        for match in re.finditer(r'\{(\d+)(?::(\d+|\[[\d\s]+\]))?\}|\"c\",\s*(\d+)', component_str):
+        for match in re.finditer(r'\{(\d+)(?::(\d+|\[[\d\s]+\]))?\}|\"c\",\s*(?:(\d+)|\"([^\"]+)\")', component_str):
             components.append(component_str[last_index:match.start()])
             part_data = {'raw': match.group(0)}
             if match.group(3): part_data.update({'type': 'skin', 'id': int(match.group(3))})
+            elif match.group(4): part_data.update({'type': 'skin', 'id': match.group(4)})
             else:
                 outer_id, inner = int(match.group(1)), match.group(2)
                 if inner: part_data.update({'type': 'group', 'id': outer_id, 'sub_ids': [int(sid) for sid in inner.strip('[]').split()]} if '[' in inner else {'type': 'elemental', 'id': outer_id, 'sub_id': int(inner)})
@@ -518,7 +525,7 @@ class WeaponEditorTab(QtWidgets.QWidget):
                 self.rarity_combo.setEditable(False); self.rarity_combo.setEnabled(True)
                 if (index := self.rarity_combo.findText(localized_base)) != -1: self.rarity_combo.setCurrentIndex(index)
 
-            self.weapon_name_label.setText(f"{self.weapon_name_label_str} {self.get_localized_string(weapon_name, weapon_name)}")
+            self.weapon_name_label.setText(f"{self.weapon_name_label_str} {weapon_name}")
             self.parts_data = remaining_parts; self.display_parts(m_id)
             self.is_handling_change = False
         except Exception as e:
@@ -549,9 +556,9 @@ class WeaponEditorTab(QtWidgets.QWidget):
         part_id = part_info.get('id'); info = {'type': "未知", 'str': "错误", 'stat': ""}
         is_skin, is_elemental = (part_info.get('type') == 'skin'), (part_info.get('type') == 'elemental')
         if is_skin:
-            if not (d := self.skin_df[self.skin_df['Skin_ID'] == part_id]).empty: info.update({'type': self.get_localized_string("Skin"), 'str': d.iloc[0]['Stat']})
+            if not (d := self.skin_df[self.skin_df['Skin_ID'].str.lower() == str(part_id).lower()]).empty: info.update({'type': self.get_localized_string("Skin"), 'str': d.iloc[0][self.skin_stat_col]})
         elif is_elemental:
-            if not (d := self.elemental_df[self.elemental_df['Part_ID'] == part_info['sub_id']]).empty: info.update({'type': self.get_localized_string("Elemental"), 'str': self.get_localized_string(d.iloc[0]['Stat'])})
+            if not (d := self.elemental_df[self.elemental_df['Part_ID'] == part_info['sub_id']]).empty: info.update({'type': self.get_localized_string("Elemental"), 'str': d.iloc[0][self.elemental_stat_col]})
         else:
             d = self.all_weapon_parts_df[(self.all_weapon_parts_df['Manufacturer & Weapon Type ID'] == m_id) & (self.all_weapon_parts_df['Part ID'] == part_id)]
             if not d.empty: info.update({'type': self.get_localized_string(d.iloc[0]['Part Type']), 'str': d.iloc[0]['String'], 'stat': d.iloc[0]['Stat']})
@@ -828,16 +835,17 @@ class WeaponEditorTab(QtWidgets.QWidget):
         button.setText("▼" if is_visible else "▶")
         
     def create_elemental_list(self, parent_layout, df):
-        # Use English keys for localization - "elements" and "element_switch" are in weapon_localization
         self._create_elemental_subsection(parent_layout, "elements", df[df['Part_ID'].between(10, 14)])
-        self._create_elemental_subsection(parent_layout, "element_switch", df[~df['Part_ID'].between(10, 14)])
+        self._create_elemental_subsection(parent_layout, "element_switch", df[df['Part_ID'].between(5, 49) & ~df['Part_ID'].between(10, 14)])
+        self._create_elemental_subsection(parent_layout, "pearl_stat", df[df['Part_ID'].between(51, 54)])
+        self._create_elemental_subsection(parent_layout, "pearl_elements", df[df['Part_ID'].between(55, 60)])
 
     def _create_elemental_subsection(self, parent_layout, title, df):
         parent_layout.addWidget(self._create_add_part_category(self.get_localized_string(title), self._populate_elemental_parts, df))
 
     def _populate_elemental_parts(self, layout, df):
         for _, row in df.iterrows():
-            var = QtWidgets.QCheckBox(f"{row['Elemental_ID']}:{row['Part_ID']} | {self.get_localized_string(row['Stat'])}")
+            var = QtWidgets.QCheckBox(f"{row['Elemental_ID']}:{row['Part_ID']} | {row[self.elemental_stat_col]}")
             layout.addWidget(var)
             self.selected_parts_to_add.append({'var': var, 'id': row['Part_ID'], 'mfg_id': 1, 'type': 'elemental'})
 
@@ -922,7 +930,8 @@ class WeaponEditorTab(QtWidgets.QWidget):
         scroll_area = QtWidgets.QScrollArea(); scroll_area.setWidgetResizable(True)
         scroll_content = QtWidgets.QWidget(); scroll_layout = QtWidgets.QVBoxLayout(scroll_content)
         for _, row in self.skin_df.iterrows():
-            btn = QtWidgets.QPushButton(f"{row['Skin_ID']}: {self.get_localized_string(row['Stat'], row['Stat'])}")
+            skin_name = row[self.skin_stat_col] if pd.notna(row.get(self.skin_stat_col)) else row['Stat']
+            btn = QtWidgets.QPushButton(f"{row['Skin_ID']}: {self.get_localized_string(skin_name, skin_name)}")
             btn.clicked.connect(partial(self.update_skin, part_index, row['Skin_ID'], win)); scroll_layout.addWidget(btn)
         scroll_area.setWidget(scroll_content); layout.addWidget(scroll_area); win.exec()
     
@@ -933,7 +942,10 @@ class WeaponEditorTab(QtWidgets.QWidget):
 
     def update_skin(self, part_index, new_skin_id, window):
         if 0 <= part_index < len(self.parts_data) and isinstance(part_info := self.parts_data[part_index], dict) and part_info.get('type') == 'skin':
-            part_info['id'], part_info['raw'] = new_skin_id, f' "c", {new_skin_id}'
+            if isinstance(new_skin_id, str) and not new_skin_id.isdigit():
+                part_info['id'], part_info['raw'] = new_skin_id, f' "c", "{new_skin_id}"'
+            else:
+                part_info['id'], part_info['raw'] = int(new_skin_id) if str(new_skin_id).isdigit() else new_skin_id, f' "c", {new_skin_id}'
             self.regenerate_ui_and_serial(); self.main_app.log(f"Weapon skin updated to ID: {new_skin_id}")
         else: QtWidgets.QMessageBox.critical(self, "Error", "The selected part is not a skin part.")
         window.close()

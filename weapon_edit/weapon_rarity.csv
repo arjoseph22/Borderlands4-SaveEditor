@@ -1,199 +1,199 @@
-Manufacturer & Weapon Type ID,Manufacturer,Weapon Type,Part ID,Part Type,Stat,Description
-13,Daedalus,Assault Rifle,95,Rarity,Common,
-13,Daedalus,Assault Rifle,96,Rarity,Uncommon,
-13,Daedalus,Assault Rifle,97,Rarity,Rare,
-13,Daedalus,Assault Rifle,98,Rarity,Epic,
-13,Daedalus,Assault Rifle,72,Rarity,Legendary,Bloody Lumberjack
-13,Daedalus,Assault Rifle,73,Rarity,Legendary,Star Helix
-13,Daedalus,Assault Rifle,85,Rarity,Legendary,First Impression
-13,Daedalus,Assault Rifle,100,Rarity,Legendary,Oscar Mike
-13,Daedalus,Assault Rifle,83,Rarity,Legendary,Mercredi
-2,Daedalus,Pistol,95,Rarity,Common,
-2,Daedalus,Pistol,96,Rarity,Uncommon,
-2,Daedalus,Pistol,97,Rarity,Rare,
-2,Daedalus,Pistol,98,Rarity,Epic,
-2,Daedalus,Pistol,54,Rarity,Legendary,Zipper
-2,Daedalus,Pistol,59,Rarity,Legendary,Rangefinder
-8,Daedalus,Shotgun,95,Rarity,Common,
-8,Daedalus,Shotgun,96,Rarity,Uncommon,
-8,Daedalus,Shotgun,97,Rarity,Rare,
-8,Daedalus,Shotgun,98,Rarity,Epic,
-8,Daedalus,Shotgun,53,Rarity,Legendary,Bod
-8,Daedalus,Shotgun,55,Rarity,Legendary,Acey May
-8,Daedalus,Shotgun,58,Rarity,Legendary,Missilaser
-20,Daedalus,SMG,95,Rarity,Common,
-20,Daedalus,SMG,96,Rarity,Uncommon,
-20,Daedalus,SMG,97,Rarity,Rare,
-20,Daedalus,SMG,98,Rarity,Epic,
-20,Daedalus,SMG,63,Rarity,Legendary,Darkbeast
-27,Jakobs,Assault Rifle,95,Rarity,Common,
-27,Jakobs,Assault Rifle,96,Rarity,Uncommon,
-27,Jakobs,Assault Rifle,97,Rarity,Rare,
-27,Jakobs,Assault Rifle,98,Rarity,Epic,
-27,Jakobs,Assault Rifle,1,Rarity,Legendary,Bonnie and Clyde
-27,Jakobs,Assault Rifle,74,Rarity,Legendary,Rowan's Charge
-27,Jakobs,Assault Rifle,79,Rarity,Legendary,Rowdy Rider
-3,Jakobs,Pistol,95,Rarity,Common,
-3,Jakobs,Pistol,96,Rarity,Uncommon,
-3,Jakobs,Pistol,97,Rarity,Rare,
-3,Jakobs,Pistol,98,Rarity,Epic,
-3,Jakobs,Pistol,76,Rarity,Legendary,King's Gambit
-3,Jakobs,Pistol,78,Rarity,Legendary,Phantom Flame
-3,Jakobs,Pistol,79,Rarity,Legendary,San Saba Songbird
-3,Jakobs,Pistol,81,Rarity,Legendary,Seventh Sense
-3,Jakobs,Pistol,83,Rarity,Legendary,Shalashaska
-9,Jakobs,Shotgun,95,Rarity,Common,
-9,Jakobs,Shotgun,96,Rarity,Uncommon,
-9,Jakobs,Shotgun,97,Rarity,Rare,
-9,Jakobs,Shotgun,98,Rarity,Epic,
-9,Jakobs,Shotgun,80,Rarity,Legendary,Hot Slugger
-9,Jakobs,Shotgun,83,Rarity,Legendary,Hellwalker
-9,Jakobs,Shotgun,85,Rarity,Legendary,Rainbow Vomit
-9,Jakobs,Shotgun,91,Rarity,Legendary,T.K's Wave
-9,Jakobs,Shotgun,100,Rarity,Legendary,Doeshot
-24,Jakobs,Sniper,95,Rarity,Common,
-24,Jakobs,Sniper,96,Rarity,Uncommon,
-24,Jakobs,Sniper,97,Rarity,Rare,
-24,Jakobs,Sniper,98,Rarity,Epic,
-24,Jakobs,Sniper,1,Rarity,Legendary,Boomslang
-24,Jakobs,Sniper,73,Rarity,Legendary,Borstel Ballista
-24,Jakobs,Sniper,76,Rarity,Legendary,Truck
-10,Maliwan,Shotgun,95,Rarity,Common,
-10,Maliwan,Shotgun,96,Rarity,Uncommon,
-10,Maliwan,Shotgun,97,Rarity,Rare,
-10,Maliwan,Shotgun,98,Rarity,Epic,
-10,Maliwan,Shotgun,1,Rarity,Legendary,Kaleidosplode
-10,Maliwan,Shotgun,57,Rarity,Legendary,Sweet Embrace
-10,Maliwan,Shotgun,80,Rarity,Legendary,Mantra
-10,Maliwan,Shotgun,100,Rarity,Legendary,Kickballer
-21,Maliwan,SMG,58,Rarity,Common,
-21,Maliwan,SMG,96,Rarity,Uncommon,
-21,Maliwan,SMG,97,Rarity,Rare,
-21,Maliwan,SMG,98,Rarity,Epic,
-21,Maliwan,SMG,60,Rarity,Legendary,Ohm I Got
-21,Maliwan,SMG,63,Rarity,Legendary,Plasma Coil
-21,Maliwan,SMG,83,Rarity,Legendary,Matador's Match
-21,Maliwan,SMG,81,Rarity,Legendary,Broken Wings
-25,Maliwan,Sniper,95,Rarity,Common,
-25,Maliwan,Sniper,96,Rarity,Uncommon,
-25,Maliwan,Sniper,97,Rarity,Rare,
-25,Maliwan,Sniper,98,Rarity,Epic,
-25,Maliwan,Sniper,59,Rarity,Legendary,Complex Root
-25,Maliwan,Sniper,61,Rarity,Legendary,Katagawa's Revenge
-25,Maliwan,Sniper,80,Rarity,Legendary,Asher's Rise
-25,Maliwan,Sniper,82,Rarity,Legendary,Conflux
-15,Order,Assault Rifle,95,Rarity,Common,
-15,Order,Assault Rifle,96,Rarity,Uncommon,
-15,Order,Assault Rifle,97,Rarity,Rare,
-15,Order,Assault Rifle,98,Rarity,Epic,
-15,Order,Assault Rifle,75,Rarity,Legendary,G.M.R.
-15,Order,Assault Rifle,76,Rarity,Legendary,Goalkeeper
-4,Order,Pistol,95,Rarity,Common,
-4,Order,Pistol,96,Rarity,Uncommon,
-4,Order,Pistol,97,Rarity,Rare,
-4,Order,Pistol,98,Rarity,Epic,
-4,Order,Pistol,53,Rarity,Legendary,Lucky Clover
-4,Order,Pistol,76,Rarity,Legendary,Bully
-4,Order,Pistol,80,Rarity,Legendary,Noisy Cricket
-4,Order,Pistol,85,Rarity,Legendary,Roulette
-26,Order,Sniper,95,Rarity,Common,
-26,Order,Sniper,96,Rarity,Uncommon,
-26,Order,Sniper,97,Rarity,Rare,
-26,Order,Sniper,98,Rarity,Epic,
-26,Order,Sniper,1,Rarity,Legendary,Fisheye
-26,Order,Sniper,76,Rarity,Legendary,Symmetry
-26,Order,Sniper,79,Rarity,Legendary,Rooker
-7,Ripper,Shotgun,95,Rarity,Common,
-7,Ripper,Shotgun,96,Rarity,Uncommon,
-7,Ripper,Shotgun,97,Rarity,Rare,
-7,Ripper,Shotgun,98,Rarity,Epic,
-7,Ripper,Shotgun,19,Rarity,Legendary,Golden God
-7,Ripper,Shotgun,20,Rarity,Legendary,Goremaster
-7,Ripper,Shotgun,100,Rarity,Legendary,Convergence
-7,Ripper,Shotgun,56,Rarity,Legendary,Hair Trigger
-19,Ripper,SMG,95,Rarity,Common,
-19,Ripper,SMG,96,Rarity,Uncommon,
-19,Ripper,SMG,97,Rarity,Rare,
-19,Ripper,SMG,98,Rarity,Epic,
-19,Ripper,SMG,1,Rarity,Legendary,Prince Harming
-19,Ripper,SMG,19,Rarity,Legendary,Hellfire
-19,Ripper,SMG,56,Rarity,Legendary,Roil
-23,Ripper,Sniper,95,Rarity,Common,
-23,Ripper,Sniper,96,Rarity,Uncommon,
-23,Ripper,Sniper,97,Rarity,Rare,
-23,Ripper,Sniper,98,Rarity,Epic,
-23,Ripper,Sniper,19,Rarity,Legendary,Stray
-23,Ripper,Sniper,1,Rarity,Legendary,Vamoose
-23,Ripper,Sniper,57,Rarity,Legendary,Rainmaker
-23,Ripper,Sniper,56,Rarity,Legendary,Tankbuster
-14,Tediore,Assault Rifle,89,Rarity,Common,
-14,Tediore,Assault Rifle,90,Rarity,Uncommon,
-14,Tediore,Assault Rifle,91,Rarity,Rare,
-14,Tediore,Assault Rifle,92,Rarity,Epic,
-14,Tediore,Assault Rifle,35,Rarity,Legendary,Chuck
-14,Tediore,Assault Rifle,36,Rarity,Legendary,Divided Focus
-14,Tediore,Assault Rifle,77,Rarity,Legendary,Murmur
-14,Tediore,Assault Rifle,79,Rarity,Legendary,Laser Disker
-5,Tediore,Pistol,95,Rarity,Common,
-5,Tediore,Pistol,96,Rarity,Uncommon,
-5,Tediore,Pistol,97,Rarity,Rare,
-5,Tediore,Pistol,98,Rarity,Epic,
-5,Tediore,Pistol,1,Rarity,Legendary,Sideshow
-5,Tediore,Pistol,60,Rarity,Legendary,Budget Deity
-5,Tediore,Pistol,66,Rarity,Legendary,Ruby's Grasp
-5,Tediore,Pistol,86,Rarity,Legendary,Inscriber
-11,Tediore,Shotgun,95,Rarity,Common,
-11,Tediore,Shotgun,96,Rarity,Uncommon,
-11,Tediore,Shotgun,97,Rarity,Rare,
-11,Tediore,Shotgun,98,Rarity,Epic,
-11,Tediore,Shotgun,76,Rarity,Legendary,Anarchy
-11,Tediore,Shotgun,78,Rarity,Legendary,Forsaken Chaos
-11,Tediore,Shotgun,80,Rarity,Legendary,Husky Friend
-11,Tediore,Shotgun,82,Rarity,Legendary,Eigenburst
-17,Torgue,Assault Rifle,95,Rarity,Common,
-17,Torgue,Assault Rifle,96,Rarity,Uncommon,
-17,Torgue,Assault Rifle,97,Rarity,Rare,
-17,Torgue,Assault Rifle,98,Rarity,Epic,
-17,Torgue,Assault Rifle,1,Rarity,Legendary,Bugbear
-17,Torgue,Assault Rifle,56,Rarity,Legendary,Cold Shoulder
-17,Torgue,Assault Rifle,78,Rarity,Legendary,Potato Thrower IV
-17,Torgue,Assault Rifle,83,Rarity,Legendary,Fleabag
-6,Torgue,Pistol,95,Rarity,Common,
-6,Torgue,Pistol,96,Rarity,Uncommon,
-6,Torgue,Pistol,97,Rarity,Rare,
-6,Torgue,Pistol,98,Rarity,Epic,
-6,Torgue,Pistol,1,Rarity,Legendary,Roach
-6,Torgue,Pistol,53,Rarity,Legendary,Queen's Rest
-6,Torgue,Pistol,59,Rarity,Legendary,Hardpoint
-6,Torgue,Pistol,78,Rarity,Legendary,Handcannon
-12,Torgue,Shotgun,95,Rarity,Common,
-12,Torgue,Shotgun,96,Rarity,Uncommon,
-12,Torgue,Shotgun,97,Rarity,Rare,
-12,Torgue,Shotgun,98,Rarity,Epic,
-12,Torgue,Shotgun,1,Rarity,Legendary,Linebacker
-12,Torgue,Shotgun,57,Rarity,Legendary,Lead Balloon
-12,Torgue,Shotgun,79,Rarity,Legendary,ARC-TAN
-18,Vladof,Assault Rifle,95,Rarity,Common,
-18,Vladof,Assault Rifle,96,Rarity,Uncommon,
-18,Vladof,Assault Rifle,97,Rarity,Rare,
-18,Vladof,Assault Rifle,98,Rarity,Epic,
-18,Vladof,Assault Rifle,63,Rarity,Legendary,Lucian's Flank
-18,Vladof,Assault Rifle,65,Rarity,Legendary,Wombo Combo
-18,Vladof,Assault Rifle,88,Rarity,Legendary,Aegon's Dream
-18,Vladof,Assault Rifle,93,Rarity,Legendary,Whiskey Foxtrot
-18,Vladof,Assault Rifle,100,Rarity,Legendary,Bubbles
-22,Vladof,SMG,95,Rarity,Common,
-22,Vladof,SMG,96,Rarity,Uncommon,
-22,Vladof,SMG,97,Rarity,Rare,
-22,Vladof,SMG,98,Rarity,Epic,
-22,Vladof,SMG,1,Rarity,Legendary,Onslaught
-22,Vladof,SMG,67,Rarity,Legendary,Kaoson
-22,Vladof,SMG,88,Rarity,Legendary,Birt's Bees
-22,Vladof,SMG,92,Rarity,Legendary,Mercurious
-16,Vladof,Sniper,95,Rarity,Common,
-16,Vladof,Sniper,96,Rarity,Uncommon,
-16,Vladof,Sniper,97,Rarity,Rare,
-16,Vladof,Sniper,98,Rarity,Epic,
-16,Vladof,Sniper,66,Rarity,Legendary,Finnity XXX-L
-16,Vladof,Sniper,67,Rarity,Legendary,Stop Gap
-16,Vladof,Sniper,69,Rarity,Legendary,Midnight Defiance
+Manufacturer & Weapon Type ID,Manufacturer,Weapon Type,Part ID,Part Type,Stat,Description,Description_ZH
+13,Daedalus,Assault Rifle,95,Rarity,Common,,
+13,Daedalus,Assault Rifle,96,Rarity,Uncommon,,
+13,Daedalus,Assault Rifle,97,Rarity,Rare,,
+13,Daedalus,Assault Rifle,98,Rarity,Epic,,
+13,Daedalus,Assault Rifle,72,Rarity,Legendary,Bloody Lumberjack,血腥伐木工
+13,Daedalus,Assault Rifle,73,Rarity,Legendary,Star Helix,恒星螺旋
+13,Daedalus,Assault Rifle,85,Rarity,Legendary,First Impression(Pre-order only),第一印象（仅限预购）
+13,Daedalus,Assault Rifle,100,Rarity,Legendary,Oscar Mike,正在行动
+13,Daedalus,Assault Rifle,83,Rarity,Legendary,Mercredi,星期三
+2,Daedalus,Pistol,95,Rarity,Common,,
+2,Daedalus,Pistol,96,Rarity,Uncommon,,
+2,Daedalus,Pistol,97,Rarity,Rare,,
+2,Daedalus,Pistol,98,Rarity,Epic,,
+2,Daedalus,Pistol,54,Rarity,Legendary,Zipper,拉链
+2,Daedalus,Pistol,59,Rarity,Legendary,Rangefinder,测距仪
+8,Daedalus,Shotgun,95,Rarity,Common,,
+8,Daedalus,Shotgun,96,Rarity,Uncommon,,
+8,Daedalus,Shotgun,97,Rarity,Rare,,
+8,Daedalus,Shotgun,98,Rarity,Epic,,
+8,Daedalus,Shotgun,53,Rarity,Legendary,Bod,生化
+8,Daedalus,Shotgun,55,Rarity,Legendary,Acey May,艾西 梅
+8,Daedalus,Shotgun,58,Rarity,Legendary,Missilaser,导弹激光
+20,Daedalus,SMG,95,Rarity,Common,,
+20,Daedalus,SMG,96,Rarity,Uncommon,,
+20,Daedalus,SMG,97,Rarity,Rare,,
+20,Daedalus,SMG,98,Rarity,Epic,,
+20,Daedalus,SMG,63,Rarity,Legendary,Darkbeast,暗兽
+27,Jakobs,Assault Rifle,95,Rarity,Common,,
+27,Jakobs,Assault Rifle,96,Rarity,Uncommon,,
+27,Jakobs,Assault Rifle,97,Rarity,Rare,,
+27,Jakobs,Assault Rifle,98,Rarity,Epic,,
+27,Jakobs,Assault Rifle,1,Rarity,Legendary,Bonnie and Clyde,雌雄大盗
+27,Jakobs,Assault Rifle,74,Rarity,Legendary,Rowan's Charge,罗恩的冲锋
+27,Jakobs,Assault Rifle,79,Rarity,Legendary,Rowdy Rider,暴走骑士
+3,Jakobs,Pistol,95,Rarity,Common,,
+3,Jakobs,Pistol,96,Rarity,Uncommon,,
+3,Jakobs,Pistol,97,Rarity,Rare,,
+3,Jakobs,Pistol,98,Rarity,Epic,,
+3,Jakobs,Pistol,76,Rarity,Legendary,King's Gambit,国王的决策
+3,Jakobs,Pistol,78,Rarity,Legendary,Phantom Flame,幻影火焰
+3,Jakobs,Pistol,79,Rarity,Legendary,San Saba Songbird,圣撒巴鸣鸟
+3,Jakobs,Pistol,81,Rarity,Legendary,Seventh Sense,第七感
+3,Jakobs,Pistol,83,Rarity,Legendary,Shalashaska,沙拉沙斯卡
+9,Jakobs,Shotgun,95,Rarity,Common,,
+9,Jakobs,Shotgun,96,Rarity,Uncommon,,
+9,Jakobs,Shotgun,97,Rarity,Rare,,
+9,Jakobs,Shotgun,98,Rarity,Epic,,
+9,Jakobs,Shotgun,80,Rarity,Legendary,Hot Slugger,强力重击手
+9,Jakobs,Shotgun,83,Rarity,Legendary,Hellwalker,地狱行者
+9,Jakobs,Shotgun,85,Rarity,Legendary,Rainbow Vomit,彩虹呕吐物
+9,Jakobs,Shotgun,91,Rarity,Legendary,T.K's Wave,尊者波动
+9,Jakobs,Shotgun,100,Rarity,Legendary,Doeshot,一命呼呼
+24,Jakobs,Sniper,95,Rarity,Common,,
+24,Jakobs,Sniper,96,Rarity,Uncommon,,
+24,Jakobs,Sniper,97,Rarity,Rare,,
+24,Jakobs,Sniper,98,Rarity,Epic,,
+24,Jakobs,Sniper,1,Rarity,Legendary,Boomslang,树蛇
+24,Jakobs,Sniper,73,Rarity,Legendary,Borstel Ballista,博斯特尔弩炮
+24,Jakobs,Sniper,76,Rarity,Legendary,Truck,卡车
+10,Maliwan,Shotgun,95,Rarity,Common,,
+10,Maliwan,Shotgun,96,Rarity,Uncommon,,
+10,Maliwan,Shotgun,97,Rarity,Rare,,
+10,Maliwan,Shotgun,98,Rarity,Epic,,
+10,Maliwan,Shotgun,1,Rarity,Legendary,Kaleidosplode,万花爆炸
+10,Maliwan,Shotgun,57,Rarity,Legendary,Sweet Embrace,甜蜜拥抱
+10,Maliwan,Shotgun,80,Rarity,Legendary,Mantra,真言
+10,Maliwan,Shotgun,100,Rarity,Legendary,Kickballer,踢球者
+21,Maliwan,SMG,58,Rarity,Common,,
+21,Maliwan,SMG,96,Rarity,Uncommon,,
+21,Maliwan,SMG,97,Rarity,Rare,,
+21,Maliwan,SMG,98,Rarity,Epic,,
+21,Maliwan,SMG,60,Rarity,Legendary,Ohm I Got,我的天呐
+21,Maliwan,SMG,63,Rarity,Legendary,Plasma Coil,超导等离子线圈
+21,Maliwan,SMG,83,Rarity,Legendary,Matador's Match(Pre-order only),斗牛大赛（仅限预购）
+21,Maliwan,SMG,81,Rarity,Legendary,Broken Wings,折翼
+25,Maliwan,Sniper,95,Rarity,Common,,
+25,Maliwan,Sniper,96,Rarity,Uncommon,,
+25,Maliwan,Sniper,97,Rarity,Rare,,
+25,Maliwan,Sniper,98,Rarity,Epic,,
+25,Maliwan,Sniper,59,Rarity,Legendary,Complex Root,复杂根须
+25,Maliwan,Sniper,61,Rarity,Legendary,Katagawa's Revenge,片川的复仇
+25,Maliwan,Sniper,80,Rarity,Legendary,Asher's Rise,亚瑟的崛起
+25,Maliwan,Sniper,82,Rarity,Legendary,Conflux,汇流
+15,Order,Assault Rifle,95,Rarity,Common,,
+15,Order,Assault Rifle,96,Rarity,Uncommon,,
+15,Order,Assault Rifle,97,Rarity,Rare,,
+15,Order,Assault Rifle,98,Rarity,Epic,,
+15,Order,Assault Rifle,75,Rarity,Legendary,G.M.R.,G.M.R.
+15,Order,Assault Rifle,76,Rarity,Legendary,Goalkeeper,门将
+4,Order,Pistol,95,Rarity,Common,,
+4,Order,Pistol,96,Rarity,Uncommon,,
+4,Order,Pistol,97,Rarity,Rare,,
+4,Order,Pistol,98,Rarity,Epic,,
+4,Order,Pistol,53,Rarity,Legendary,Lucky Clover,幸运四叶草
+4,Order,Pistol,76,Rarity,Legendary,Bully,霸凌
+4,Order,Pistol,80,Rarity,Legendary,Noisy Cricket,吵闹蟋蟀
+4,Order,Pistol,85,Rarity,Legendary,Roulette,轮盘赌
+26,Order,Sniper,95,Rarity,Common,,
+26,Order,Sniper,96,Rarity,Uncommon,,
+26,Order,Sniper,97,Rarity,Rare,,
+26,Order,Sniper,98,Rarity,Epic,,
+26,Order,Sniper,1,Rarity,Legendary,Fisheye,鱼眼
+26,Order,Sniper,76,Rarity,Legendary,Symmetry,对称
+26,Order,Sniper,79,Rarity,Legendary,Rooker,浪子
+7,Ripper,Shotgun,95,Rarity,Common,,
+7,Ripper,Shotgun,96,Rarity,Uncommon,,
+7,Ripper,Shotgun,97,Rarity,Rare,,
+7,Ripper,Shotgun,98,Rarity,Epic,,
+7,Ripper,Shotgun,19,Rarity,Legendary,Golden God,黄金之神
+7,Ripper,Shotgun,20,Rarity,Legendary,Goremaster,血腥大师
+7,Ripper,Shotgun,100,Rarity,Legendary,Convergence,汇聚
+7,Ripper,Shotgun,56,Rarity,Legendary,Hair Trigger,一触即发
+19,Ripper,SMG,95,Rarity,Common,,
+19,Ripper,SMG,96,Rarity,Uncommon,,
+19,Ripper,SMG,97,Rarity,Rare,,
+19,Ripper,SMG,98,Rarity,Epic,,
+19,Ripper,SMG,1,Rarity,Legendary,Prince Harming,死马王子
+19,Ripper,SMG,19,Rarity,Legendary,Hellfire,地狱火
+19,Ripper,SMG,56,Rarity,Legendary,Roil,激怒
+23,Ripper,Sniper,95,Rarity,Common,,
+23,Ripper,Sniper,96,Rarity,Uncommon,,
+23,Ripper,Sniper,97,Rarity,Rare,,
+23,Ripper,Sniper,98,Rarity,Epic,,
+23,Ripper,Sniper,19,Rarity,Legendary,Stray,偏离
+23,Ripper,Sniper,1,Rarity,Legendary,Vamoose,闪人
+23,Ripper,Sniper,57,Rarity,Legendary,Rainmaker,造雨师
+23,Ripper,Sniper,56,Rarity,Legendary,Tankbuster,反坦克炮
+14,Tediore,Assault Rifle,89,Rarity,Common,,
+14,Tediore,Assault Rifle,90,Rarity,Uncommon,,
+14,Tediore,Assault Rifle,91,Rarity,Rare,,
+14,Tediore,Assault Rifle,92,Rarity,Epic,,
+14,Tediore,Assault Rifle,35,Rarity,Legendary,Chuck,查克
+14,Tediore,Assault Rifle,36,Rarity,Legendary,Divided Focus,焦点分散
+14,Tediore,Assault Rifle,77,Rarity,Legendary,Murmur,轻柔低语
+14,Tediore,Assault Rifle,79,Rarity,Legendary,Laser Disker,激光飞盘
+5,Tediore,Pistol,95,Rarity,Common,,
+5,Tediore,Pistol,96,Rarity,Uncommon,,
+5,Tediore,Pistol,97,Rarity,Rare,,
+5,Tediore,Pistol,98,Rarity,Epic,,
+5,Tediore,Pistol,1,Rarity,Legendary,Sideshow,余兴节目
+5,Tediore,Pistol,60,Rarity,Legendary,Budget Deity,预算之神
+5,Tediore,Pistol,66,Rarity,Legendary,Ruby's Grasp,红宝石的触碰
+5,Tediore,Pistol,86,Rarity,Legendary,Inscriber,记录器
+11,Tediore,Shotgun,95,Rarity,Common,,
+11,Tediore,Shotgun,96,Rarity,Uncommon,,
+11,Tediore,Shotgun,97,Rarity,Rare,,
+11,Tediore,Shotgun,98,Rarity,Epic,,
+11,Tediore,Shotgun,76,Rarity,Legendary,Anarchy,无政府主义
+11,Tediore,Shotgun,78,Rarity,Legendary,Forsaken Chaos,遗弃混沌
+11,Tediore,Shotgun,80,Rarity,Legendary,Husky Friend,哈士奇好友
+11,Tediore,Shotgun,82,Rarity,Legendary,Eigenburst,特征爆发
+17,Torgue,Assault Rifle,95,Rarity,Common,,
+17,Torgue,Assault Rifle,96,Rarity,Uncommon,,
+17,Torgue,Assault Rifle,97,Rarity,Rare,,
+17,Torgue,Assault Rifle,98,Rarity,Epic,,
+17,Torgue,Assault Rifle,1,Rarity,Legendary,Bugbear,熊熊虫
+17,Torgue,Assault Rifle,56,Rarity,Legendary,Cold Shoulder,冷屁股
+17,Torgue,Assault Rifle,78,Rarity,Legendary,Potato Thrower IV,土豆投掷者Ⅳ
+17,Torgue,Assault Rifle,83,Rarity,Legendary,Fleabag,跳蚤袋
+6,Torgue,Pistol,95,Rarity,Common,,
+6,Torgue,Pistol,96,Rarity,Uncommon,,
+6,Torgue,Pistol,97,Rarity,Rare,,
+6,Torgue,Pistol,98,Rarity,Epic,,
+6,Torgue,Pistol,1,Rarity,Legendary,Roach,蟑螂
+6,Torgue,Pistol,53,Rarity,Legendary,Queen's Rest,女王后宫
+6,Torgue,Pistol,59,Rarity,Legendary,Hardpoint,承力点
+6,Torgue,Pistol,78,Rarity,Legendary,Handcannon,手铳
+12,Torgue,Shotgun,95,Rarity,Common,,
+12,Torgue,Shotgun,96,Rarity,Uncommon,,
+12,Torgue,Shotgun,97,Rarity,Rare,,
+12,Torgue,Shotgun,98,Rarity,Epic,,
+12,Torgue,Shotgun,1,Rarity,Legendary,Linebacker,钢铁后卫
+12,Torgue,Shotgun,57,Rarity,Legendary,Lead Balloon,铅气球
+12,Torgue,Shotgun,79,Rarity,Legendary,ARC-TAN,正反切
+18,Vladof,Assault Rifle,95,Rarity,Common,,
+18,Vladof,Assault Rifle,96,Rarity,Uncommon,,
+18,Vladof,Assault Rifle,97,Rarity,Rare,,
+18,Vladof,Assault Rifle,98,Rarity,Epic,,
+18,Vladof,Assault Rifle,63,Rarity,Legendary,Lucian's Flank,卢西恩的侧攻
+18,Vladof,Assault Rifle,65,Rarity,Legendary,Wombo Combo,超杀连击
+18,Vladof,Assault Rifle,88,Rarity,Legendary,Aegon's Dream,伊耿的梦想
+18,Vladof,Assault Rifle,93,Rarity,Legendary,Whiskey Foxtrot,旺德发
+18,Vladof,Assault Rifle,100,Rarity,Legendary,Bubbles,泡泡
+22,Vladof,SMG,95,Rarity,Common,,
+22,Vladof,SMG,96,Rarity,Uncommon,,
+22,Vladof,SMG,97,Rarity,Rare,,
+22,Vladof,SMG,98,Rarity,Epic,,
+22,Vladof,SMG,1,Rarity,Legendary,Onslaught,猛攻
+22,Vladof,SMG,67,Rarity,Legendary,Kaoson,考森
+22,Vladof,SMG,88,Rarity,Legendary,Birt's Bees,伯特的蜜蜂
+22,Vladof,SMG,92,Rarity,Legendary,Mercurious,水银好奇者
+16,Vladof,Sniper,95,Rarity,Common,,
+16,Vladof,Sniper,96,Rarity,Uncommon,,
+16,Vladof,Sniper,97,Rarity,Rare,,
+16,Vladof,Sniper,98,Rarity,Epic,,
+16,Vladof,Sniper,66,Rarity,Legendary,Finnity XXX-L,芬妮迪XXX-L
+16,Vladof,Sniper,67,Rarity,Legendary,Stop Gap,权宜之计
+16,Vladof,Sniper,69,Rarity,Legendary,Midnight Defiance,暗夜抗争

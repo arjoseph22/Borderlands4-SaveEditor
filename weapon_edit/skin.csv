@@ -1,113 +1,130 @@
-Skin_ID,Stat
-1,光幻
-2,光幻
-3,光幻
-4,光幻
-5,光幻
-6,光幻
-7,光幻
-8,光幻
-9,光幻
-10,光幻
-11,光幻
-12,光幻
-13,光幻
-14,光幻
-15,光幻
-16,光幻
-17,光幻
-18,光幻
-19,光幻
-20,光幻
-21,光幻
-22,光幻
-23,光幻
-24,光幻
-25,光幻
-26,光幻
-27,光幻
-28,光幻
-29,光幻
-30,光幻
-31,光幻
-32,光幻
-33,光幻
-34,光幻
-35,光幻
-36,光幻
-37,光幻
-38,光幻
-39,光幻
-40,光幻
-41,光幻
-42,光幻
-43,光幻
-44,光幻
-45,光幻
-46,光幻
-47,光幻
-48,光幻
-49,光幻
-50,光幻
-51,光幻
-52,光幻
-53,光幻
-54,光幻
-55,光幻
-56,光幻
-57,光幻
-58,光幻
-59,光幻
-60,光幻
-61,光幻
-62,光幻
-63,光幻
-64,光幻
-65,光幻
-66,光幻
-67,光幻
-68,光幻
-69,光幻
-70,光幻
-71,未知
-72,未知
-73,厂商默认皮肤
-74,未知
-75,厂商默认皮肤
-76,未知
-77,笑面虎
-78,怪人
-79,永恒捍卫者
-80,溅射伤害
-81,掠食之鸟
-82,浸泡
-83,自我切除
-84,高层建筑
-85,源泉满载
-86,吞噬者
-87,系统
-88,面相未来
-89,永远疯狂
-90,余兴派对
-91,"站住，公民"
-92,熔毁
-93,极高冲击
-94,顺纹处理
-95,红色野兽
-96,像素完美
-97,指令链
-98,光泽度
-99,呜呜呜!
-100,满洒
-101,狱友
-102,永远不说DIY
-103,游戏机器人
-104,可爱小猫委员会
-105,载具射击游戏
-106,弗兰冻酸奶
-107,如此绘制
-108,海岸循环
-109,枪就是熔岩
-110,太阳耀斑
-111,未知
-112,未知
+Skin_ID,Stat,Stat_EN
+1,光幻,Phosphen
+2,光幻,Phosphen
+3,光幻,Phosphen
+4,光幻,Phosphen
+5,光幻,Phosphen
+6,光幻,Phosphen
+7,光幻,Phosphen
+8,光幻,Phosphen
+9,光幻,Phosphen
+10,光幻,Phosphen
+11,光幻,Phosphen
+12,光幻,Phosphen
+13,光幻,Phosphen
+14,光幻,Phosphen
+15,光幻,Phosphen
+16,光幻,Phosphen
+17,光幻,Phosphen
+18,光幻,Phosphen
+19,光幻,Phosphen
+20,光幻,Phosphen
+21,光幻,Phosphen
+22,光幻,Phosphen
+23,光幻,Phosphen
+24,光幻,Phosphen
+25,光幻,Phosphen
+26,光幻,Phosphen
+27,光幻,Phosphen
+28,光幻,Phosphen
+29,光幻,Phosphen
+30,光幻,Phosphen
+31,光幻,Phosphen
+32,光幻,Phosphen
+33,光幻,Phosphen
+34,光幻,Phosphen
+35,光幻,Phosphen
+36,光幻,Phosphen
+37,光幻,Phosphen
+38,光幻,Phosphen
+39,光幻,Phosphen
+40,光幻,Phosphen
+41,光幻,Phosphen
+42,光幻,Phosphen
+43,光幻,Phosphen
+44,光幻,Phosphen
+45,光幻,Phosphen
+46,光幻,Phosphen
+47,光幻,Phosphen
+48,光幻,Phosphen
+49,光幻,Phosphen
+50,光幻,Phosphen
+51,光幻,Phosphen
+52,光幻,Phosphen
+53,光幻,Phosphen
+54,光幻,Phosphen
+55,光幻,Phosphen
+56,光幻,Phosphen
+57,光幻,Phosphen
+58,光幻,Phosphen
+59,光幻,Phosphen
+60,光幻,Phosphen
+61,光幻,Phosphen
+62,光幻,Phosphen
+63,光幻,Phosphen
+64,光幻,Phosphen
+65,光幻,Phosphen
+66,光幻,Phosphen
+67,光幻,Phosphen
+68,光幻,Phosphen
+69,光幻,Phosphen
+70,光幻,Phosphen
+71,未知,Unkown
+72,未知,Unkown
+73,厂商默认皮肤,Default
+74,未知,Unkown
+75,厂商默认皮肤,Default
+76,未知,Unkown
+77,笑面虎,Smiley
+78,怪人,Werido
+79,永恒捍卫者,Eternal Defender
+80,溅射伤害,Splash Damage
+81,掠食之鸟,Bird of Prey
+82,浸泡,Soused
+83,自我切除,Self Excision
+84,高层建筑,Highrise
+85,源泉满载,Wellspring-Loaded
+86,吞噬者,Devourer
+87,系统,The System
+88,面相未来,Future Proof
+89,永远疯狂,Frenzy Forever
+90,余兴派对,Afterparty
+91,"站住，公民","Halt, Citizen"
+92,熔毁,Meltdown
+93,极高冲击,High Impact
+94,顺纹处理,With the Grain
+95,红色野兽,Bestia Rossa
+96,像素完美,Pixel Perfect
+97,指令链,Chain of Command
+98,光泽度,Gloss
+99,呜呜呜!,Awoooooo!
+100,满洒,Sprinked
+101,狱友,Prison Buddy
+102,永远不说DIY,Never Say DlY
+103,游戏机器人,Game Bot
+104,可爱小猫委员会,Itty Bitty Kitty Committee
+105,载具射击游戏,Carcade Shooter
+106,弗兰冻酸奶,Fran's Frogurt
+107,如此绘制,Drawn This Way
+108,海岸循环,Coast to Coast
+109,枪就是熔岩,The Gun is Lava
+110,太阳耀斑,Solar Flair
+111,未知,Unkown
+112,未知,Unkown
+"cosmetics_weapon_mat46_mechyeah",恭喜啦！,Congratulations!
+"cosmetics_weapon_mat47_assault",装备？！,...Gear?!
+"cosmetics_weapon_mat48_boltron",电压猎人,Volt Hunter
+"cosmetics_weapon_mat49_furboy",猛兽模式,Beast Mode
+"cosmetics_weapon_mat50_spicyiguana",怪物杀手,Kaiju Killa
+"cosmetics_weapon_shiny_arctic",正反切光幻,ARC-TAN Phosphen
+"cosmetics_weapon_shiny_bubbles",泡泡光幻,Bubbles Phosphen
+"cosmetics_weapon_shiny_demo",一触即发光幻,Hair-Trigger Phosphen 
+"cosmetics_weapon_shiny_doeshot",一命呼呼光幻,Doeshot Phosphen
+"cosmetics_weapon_shiny_fleabag",跳蚤袋光幻,Fleabag Phosphen
+"cosmetics_weapon_shiny_laserdisc",激光飞盘光幻,Laser Disker Phosphen
+"cosmetics_weapon_shiny_mercredi",星期三光幻,Mercredi Phosphen
+"cosmetics_weapon_shiny_mercury",水银好奇者光幻,Mercurious Phosphen
+"cosmetics_weapon_shiny_roulette",轮盘赌光幻,Roulette Phosphen
+"cosmetics_weapon_shiny_shalashaska",沙拉沙斯卡光幻,Shalashaska Phosphen
+"cosmetics_weapon_shiny_songbird",折翼光幻,Broken Wings Phosphen
+"cosmetics_weapon_shiny_tankbuster",反坦克炮光幻,Tankbuster Phosphen

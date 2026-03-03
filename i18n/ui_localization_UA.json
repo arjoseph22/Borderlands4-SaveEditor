@@ -379,6 +379,10 @@
     },
     "tooltips": {
       "type": "Тип"
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "Дизайн та дані цієї сторінки натхненні @Mattmab та @Whiteshark\nЯкщо вам подобається цей дизайн, відвідайте save-editor.be та спробуйте їхню веб-версію"
     }
   },
   "enhancement_tab": {
@@ -416,6 +420,10 @@
       "copy_b85_msg": "Base85 код скопійовано в буфер обміну!",
       "no_valid_code": "Недійсний код",
       "gen_valid_first": "Будь ласка, спочатку згенеруйте дійсний код посилення."
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "Дизайн та дані цієї сторінки натхненні @Mattmab та @Whiteshark\nЯкщо вам подобається цей дизайн, відвідайте save-editor.be та спробуйте їхню веб-версію"
     }
   },
   "weapon_editor_tab": {
@@ -480,7 +488,9 @@
       "skin": "Скін",
       "elemental": "Стихія",
       "elements": "Стихії",
-      "element_switch": "Перемикання стихій"
+      "element_switch": "Перемикання стихій",
+      "pearl_stat": "Pearl Stat",
+      "pearl_elements": "Pearl Elements"
     }
   },
   "weapon_gen_tab": {

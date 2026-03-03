@@ -82,8 +82,10 @@ class QtWeaponGeneratorTab(QWidget):
 
             self.all_weapon_parts_df = pd.read_csv(paths["all_parts"])
             self.all_weapon_parts_df['Part ID'] = self.all_weapon_parts_df['Part ID'].astype('Int64').astype(str).replace('<NA>', '')
-            self.elemental_df = pd.read_csv(paths["elemental"])
+            self.elemental_df = pd.read_csv(resource_loader.get_weapon_data_path('elemental.csv'))
+            self.elemental_stat_col = 'Stat_ZH' if lang == 'zh-CN' else 'Stat'
             self.weapon_rarity_df = pd.read_csv(paths["rarity"])
+            self.rarity_desc_col = 'Description_ZH' if lang == 'zh-CN' else 'Description'
             
             self.weapon_localization = {}
             if lang == 'zh-CN':
@@ -314,7 +316,7 @@ class QtWeaponGeneratorTab(QWidget):
             values.extend(sorted([self.get_localized_string(r) for r in df['Stat'].unique()]))
         elif name == "Legendary Type":
             leg_df = self.weapon_rarity_df[(self.weapon_rarity_df['Manufacturer & Weapon Type ID'] == m_id) & (self.weapon_rarity_df['Stat'] == 'Legendary')]
-            values.extend([f"{r['Part ID']} - {self.get_localized_string(r['Description'], r['Description'])}" for _, r in leg_df.iterrows() if pd.notna(r['Description'])])
+            values.extend([f"{r['Part ID']} - {r[self.rarity_desc_col]}" for _, r in leg_df.iterrows() if pd.notna(r[self.rarity_desc_col]) and r[self.rarity_desc_col]])
         
         # Add to dict BEFORE connecting signals
         self.part_combos[name] = combo
@@ -340,7 +342,7 @@ class QtWeaponGeneratorTab(QWidget):
 
         combo = QComboBox()
         none_val = self.get_localized_string(self._NONE_VALUE)
-        values = [none_val] + [f"{r['Part_ID']} - {self.get_localized_string(r['Stat'])}" for _, r in self.elemental_df.iterrows()]
+        values = [none_val] + [f"{r['Part_ID']} - {r[self.elemental_stat_col]}" for _, r in self.elemental_df.iterrows()]
         combo.addItems(values)
         
         self.part_combos[name] = combo

@@ -379,6 +379,10 @@
     },
     "tooltips": {
       "type": "Type"
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "The design inspiration and data for this page come from @Mattmab and @Whiteshark\nIf you like this design, visit save-editor.be to try their web version"
     }
   },
   "enhancement_tab": {
@@ -416,6 +420,10 @@
       "copy_b85_msg": "Base85 code copied to clipboard!",
       "no_valid_code": "Invalid Code",
       "gen_valid_first": "Please generate a valid enhancement code first."
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "The design inspiration and data for this page come from @Mattmab and @Whiteshark\nIf you like this design, visit save-editor.be to try their web version"
     }
   },
   "weapon_editor_tab": {
@@ -480,7 +488,9 @@
       "skin": "Skin",
       "elemental": "Elemental",
       "elements": "Elements",
-      "element_switch": "Element Switch"
+      "element_switch": "Element Switch",
+      "pearl_stat": "Pearl Stat",
+      "pearl_elements": "Pearl Elements"
     }
   },
   "weapon_gen_tab": {

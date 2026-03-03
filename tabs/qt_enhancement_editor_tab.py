@@ -67,7 +67,8 @@ class QtEnhancementEditorTab(QWidget):
                 "buttons": {"copy": "Copy", "add_to_backpack": "Add", "clear": "Clear"},
                 "flags": {"1": "1", "3": "3", "5": "5", "17": "17", "33": "33", "65": "65", "129": "129"},
                 "dialogs": {"error_load": "Error loading data", "copied": "Copied", "copy_raw_msg": "Copied raw", "copy_b85_msg": "Copied base85",
-                            "no_valid_code": "No valid code", "gen_valid_first": "Generate first"}
+                            "no_valid_code": "No valid code", "gen_valid_first": "Generate first"},
+                "special_thanks": {"title": "Special Thanks", "content": "The design inspiration and data for this page come from @Mattmab and @Whiteshark\nIf you like this design, visit save-editor.be to try their web version"}
             }
 
     def _build_ui(self):
@@ -230,6 +231,28 @@ class QtEnhancementEditorTab(QWidget):
         self.sel_247_list.setMinimumHeight(200)
         builder_247_layout.addWidget(self.sel_247_list, 1, 2)
         main_layout.addWidget(builder_247_group)
+
+        # Special Thanks banner
+        thanks_data = self.ui_loc.get('special_thanks', {})
+        thanks_title = thanks_data.get('title', 'Special Thanks')
+        thanks_content = thanks_data.get('content', '')
+        if thanks_content:
+            thanks_label = QLabel(f"<b>✨ {thanks_title}</b><br>{thanks_content.replace(chr(10), '<br>')}")
+            thanks_label.setWordWrap(True)
+            thanks_label.setOpenExternalLinks(True)
+            thanks_label.setStyleSheet("""
+                QLabel {
+                    background-color: rgba(0, 150, 136, 0.08);
+                    border: 1px solid rgba(0, 150, 136, 0.30);
+                    border-radius: 6px;
+                    color: #4dd0c8;
+                    font-size: 13px;
+                    padding: 8px 12px;
+                    margin-top: 8px;
+                }
+            """)
+            main_layout.addWidget(thanks_label)
+
         main_layout.addStretch()
 
     def populate_initial_data(self):

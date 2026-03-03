@@ -379,6 +379,10 @@
     },
     "tooltips": {
       "type": "类型"
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "本页面的设计灵感及数据来源于 @Mattmab 及 @Whiteshark\n如果你也喜欢这个设计，可以前往 save-editor.be 试试他们的网页版"
     }
   },
   "enhancement_tab": {
@@ -416,6 +420,10 @@
       "copy_b85_msg": "Base85 代码已复制到剪贴板！",
       "no_valid_code": "无效代码",
       "gen_valid_first": "请先生成有效的强化代码。"
+    },
+    "special_thanks": {
+      "title": "Special Thanks",
+      "content": "本页面的设计灵感及数据来源于 @Mattmab 及 @Whiteshark\n如果你也喜欢这个设计，可以前往 save-editor.be 试试他们的网页版"
     }
   },
   "weapon_editor_tab": {
@@ -480,7 +488,9 @@
       "skin": "皮肤",
       "elemental": "元素",
       "elements": "元素",
-      "element_switch": "元素切换"
+      "element_switch": "元素切换",
+      "pearl_stat": "珠光属性",
+      "pearl_elements": "珠光元素"
     }
   },
   "weapon_gen_tab": {

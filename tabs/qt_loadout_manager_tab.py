@@ -197,7 +197,7 @@ class QtLoadoutManagerTab(QWidget):
     # 数据加载
     # ══════════════════════════════════════════════════════════════════
     def _load_weapon_csv_data(self):
-        """加载 weapon_name.csv, weapon_rarity.csv, all_weapon_part.csv"""
+        """加载 weapon_rarity.csv, all_weapon_part.csv"""
         try:
             suffix = ""
             def get_path(base_name):
@@ -208,12 +208,10 @@ class QtLoadoutManagerTab(QWidget):
                 return resource_loader.get_weapon_data_path(base_name)
 
             self.all_weapon_parts_df = pd.read_csv(get_path('all_weapon_part.csv'))
-            self.weapon_name_df = pd.read_csv(get_path('weapon_name.csv'))
             self.weapon_rarity_df = pd.read_csv(get_path('weapon_rarity.csv'))
         except Exception as e:
             print(f"Loadout: 加载武器CSV数据失败: {e}")
             self.all_weapon_parts_df = pd.DataFrame()
-            self.weapon_name_df = pd.DataFrame()
             self.weapon_rarity_df = pd.DataFrame()
 
     def _load_weapon_localization(self):
@@ -358,11 +356,13 @@ class QtLoadoutManagerTab(QWidget):
     def _parse_component_string(self, component_str):
         """解析武器部件字符串"""
         components, last_index = [], 0
-        for match in re.finditer(r'\{(\d+)(?::(\d+|\[[\d\s]+\]))?\}|\"c\",\s*(\d+)', component_str):
+        for match in re.finditer(r'\{(\d+)(?::(\d+|\[[\d\s]+\]))?\}|\"c\",\s*(?:(\d+)|\"([^\"]+)\")', component_str):
             components.append(component_str[last_index:match.start()])
             part_data = {'raw': match.group(0)}
             if match.group(3):
                 part_data.update({'type': 'skin', 'id': int(match.group(3))})
+            elif match.group(4):
+                part_data.update({'type': 'skin', 'id': match.group(4)})
             else:
                 outer_id, inner = int(match.group(1)), match.group(2)
                 if inner:
@@ -400,11 +400,11 @@ class QtLoadoutManagerTab(QWidget):
                     (self.all_weapon_parts_df['Manufacturer & Weapon Type ID'] == m_id) &
                     (self.all_weapon_parts_df['Part ID'] == part_id)]
                 if not part_details.empty and part_details.iloc[0]['Part Type'] == 'Barrel':
-                    name_info = self.weapon_name_df[
-                        (self.weapon_name_df['Manufacturer & Weapon Type ID'] == m_id) &
-                        (self.weapon_name_df['Part ID'] == part_id)]
-                    if not name_info.empty:
-                        weapon_name = name_info.iloc[0]['Name']
+                    stat_val = str(part_details.iloc[0]['Stat']) if pd.notna(part_details.iloc[0]['Stat']) else ''
+                    if stat_val:
+                        weapon_name = stat_val.split(',')[0].strip()
+                        if weapon_name.endswith(' Barrel'):
+                            weapon_name = weapon_name[:-len(' Barrel')]
                         break
 
             rarity = ''
@@ -416,14 +416,13 @@ class QtLoadoutManagerTab(QWidget):
                 if not rarity_info.empty:
                     rarity = rarity_info.iloc[0]['Stat']
 
-            loc_weapon = self.weapon_localization.get(weapon_name, weapon_name) if weapon_name else ''
             loc_rarity = self.weapon_localization.get(rarity, rarity) if rarity else ''
 
             display_parts = []
             if loc_rarity:
                 display_parts.append(f"[{loc_rarity}]")
-            if loc_weapon:
-                display_parts.append(loc_weapon)
+            if weapon_name:
+                display_parts.append(weapon_name)
             return ' '.join(display_parts) if display_parts else ''
         except Exception as e:
             print(f"Loadout: 武器名称解析失败: {e}")

@@ -154,6 +154,27 @@ class QtClassModEditorTab(QWidget):
         self._create_output_group()
         self._create_skills_and_perks_group()
 
+        # Special Thanks banner
+        thanks_data = self.ui_loc.get('special_thanks', {})
+        thanks_title = thanks_data.get('title', 'Special Thanks')
+        thanks_content = thanks_data.get('content', '')
+        if thanks_content:
+            thanks_label = QLabel(f"<b>✨ {thanks_title}</b><br>{thanks_content.replace(chr(10), '<br>')}")
+            thanks_label.setWordWrap(True)
+            thanks_label.setOpenExternalLinks(True)
+            thanks_label.setStyleSheet("""
+                QLabel {
+                    background-color: rgba(0, 150, 136, 0.08);
+                    border: 1px solid rgba(0, 150, 136, 0.30);
+                    border-radius: 6px;
+                    color: #4dd0c8;
+                    font-size: 13px;
+                    padding: 8px 12px;
+                    margin-top: 8px;
+                }
+            """)
+            self.container_layout.addWidget(thanks_label)
+
         self.populate_initial_data()
         self._connect_signals()
         
@@ -228,7 +249,8 @@ class QtClassModEditorTab(QWidget):
                 "skill_point_widget": {"min": "Min", "max": "Max"},
                 "dialogs": {"error": "Error", "load_error_code": "Code Load Error: {error}", "warning": "Warning", "load_error_loc": "Loc Load Error: {error}", 
                             "no_data": "No Data", "no_valid_base85": "No valid Base85", "coding_error": "Error: {error}", "gen_error": "Error: {error}"},
-                "tooltips": {"type": "Type"}
+                "tooltips": {"type": "Type"},
+                "special_thanks": {"title": "Special Thanks", "content": "The design inspiration and data for this page come from @Mattmab and @Whiteshark\nIf you like this design, visit save-editor.be to try their web version"}
             }
 
     def update_language(self, lang):
