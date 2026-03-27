@@ -10,6 +10,7 @@
     "buttons": {
       "refresh": "刷新",
       "open": "使用选中的存档和ID打开",
+      "select_game_dir": "设置游戏目录",
       "select_save_folder": "选择存档所在文件夹",
       "select_backup_folder": "选择备份文件夹"
     },
@@ -18,11 +19,19 @@
       "status_loading": "扫描存档目录...",
       "status_no_saves": "未找到存档文件。",
       "status_found_saves": "找到 {count} 个存档文件。",
+      "current_game_dir": "游戏目录: {path}",
       "current_save_path": "当前存档路径: {path}",
-      "current_backup_path": "当前备份路径: {path}"
+      "current_backup_path": "当前备份路径: {path}",
+      "not_set": "未设定"
     },
     "dialogs": {
-      "folder_name_warning": "所选文件夹名称必须为 'SaveGames'。"
+      "folder_name_warning": "所选文件夹名称必须为 'SaveGames'。",
+      "success": "成功",
+      "warning": "警告",
+      "game_dir_needed_title": "设置游戏目录",
+      "game_dir_needed": "游戏近期更新将存档位置从「我的文档」迁移到了游戏安装目录下。\n请设置无主之地4的游戏目录以定位存档文件。\n\n可以选择 Borderlands 4 安装目录下的任意文件夹。",
+      "game_dir_found": "已自动检测到存档文件夹:\n{path}",
+      "game_dir_not_found": "无法从所选目录自动检测存档文件夹。\n请使用「选择存档所在文件夹」手动选择 SaveGames 文件夹。"
     },
     "placeholders": {
       "user_id_input": "如果自动检测的ID不正确，请在此处输入"
@@ -159,7 +168,7 @@
       "skip_story": "跳过剧情任务",
       "skip_all": "跳过所有任务",
       "change_class": "更改角色职业",
-      "max_level": "满级 (50级)",
+      "max_level": "满级 (60级)",
       "max_sdu": "最大储物格代币",
       "unlock_vault": "解锁所有密藏大门",
       "unlock_vehicles": "解锁所有载具",

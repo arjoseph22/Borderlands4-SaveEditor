@@ -25,6 +25,7 @@ class SaveSelectorWidget(QWidget):
         self.current_save_files = [] # Store for language updates
         self.custom_save_path = None
         self.custom_backup_path = None
+        self.game_install_path = None
         self._load_config()
         self._load_localization()
 
@@ -34,6 +35,7 @@ class SaveSelectorWidget(QWidget):
         # --- Top Toolbar ---
         toolbar_layout = QHBoxLayout()
         self.refresh_button = QPushButton(self.loc['buttons']['refresh'])
+        self.select_game_dir_btn = QPushButton(self.loc['buttons'].get('select_game_dir', 'Set Game Directory'))
         self.select_save_folder_btn = QPushButton(self.loc['buttons']['select_save_folder'])
         self.select_backup_folder_btn = QPushButton(self.loc['buttons']['select_backup_folder'])
         
@@ -42,6 +44,7 @@ class SaveSelectorWidget(QWidget):
         self.user_id_input.setPlaceholderText(self.loc['placeholders']['user_id_input'])
         
         toolbar_layout.addWidget(self.refresh_button)
+        toolbar_layout.addWidget(self.select_game_dir_btn)
         toolbar_layout.addWidget(self.select_save_folder_btn)
         toolbar_layout.addWidget(self.select_backup_folder_btn)
         toolbar_layout.addStretch()
@@ -51,9 +54,11 @@ class SaveSelectorWidget(QWidget):
         
         # --- Path Info Labels (Optional, but good for UX) ---
         self.path_info_layout = QVBoxLayout()
+        self.game_dir_label = QLabel()
         self.save_path_label = QLabel()
         self.backup_path_label = QLabel()
         self._update_path_labels()
+        self.path_info_layout.addWidget(self.game_dir_label)
         self.path_info_layout.addWidget(self.save_path_label)
         self.path_info_layout.addWidget(self.backup_path_label)
         layout.addLayout(self.path_info_layout)
@@ -81,8 +86,13 @@ class SaveSelectorWidget(QWidget):
         self.open_button.clicked.connect(self._on_open_button_clicked)
         self.tree_view.selectionModel().selectionChanged.connect(self._on_selection_changed)
         self.tree_view.doubleClicked.connect(self._on_tree_double_clicked)
+        self.select_game_dir_btn.clicked.connect(self._on_select_game_dir_clicked)
         self.select_save_folder_btn.clicked.connect(self._on_select_save_folder_clicked)
         self.select_backup_folder_btn.clicked.connect(self._on_select_backup_folder_clicked)
+
+        # Check if game directory needs to be configured on startup
+        from PyQt6.QtCore import QTimer
+        QTimer.singleShot(500, self._check_initial_game_dir)
 
     def _load_config(self):
         if os.path.exists(self.CONFIG_FILE):
@@ -91,13 +101,15 @@ class SaveSelectorWidget(QWidget):
                     config = json.load(f)
                     self.custom_save_path = config.get("custom_save_path")
                     self.custom_backup_path = config.get("custom_backup_path")
+                    self.game_install_path = config.get("game_install_path")
             except Exception as e:
                 print(f"Error loading config: {e}")
 
     def _save_config(self):
         config = {
             "custom_save_path": self.custom_save_path,
-            "custom_backup_path": self.custom_backup_path
+            "custom_backup_path": self.custom_backup_path,
+            "game_install_path": self.game_install_path
         }
         try:
             with open(self.CONFIG_FILE, 'w', encoding='utf-8') as f:
@@ -133,11 +145,13 @@ class SaveSelectorWidget(QWidget):
         header.setStretchLastSection(True)
     
     def _update_path_labels(self):
-        save_path_display = self.custom_save_path if self.custom_save_path else "Default"
-        backup_path_display = self.custom_backup_path if self.custom_backup_path else "Default"
+        game_dir_display = self.game_install_path if self.game_install_path else self.loc['labels'].get('not_set', 'Not Set')
+        save_path_display = self.custom_save_path if self.custom_save_path else self._derive_save_path_from_game_dir() or self.loc['labels'].get('not_set', 'Not Set')
+        backup_path_display = self.custom_backup_path if self.custom_backup_path else self.loc['labels'].get('not_set', 'Not Set')
         
-        self.save_path_label.setText(self.loc['labels'].get('current_save_path', "Current Save Path: {path}").format(path=save_path_display))
-        self.backup_path_label.setText(self.loc['labels'].get('current_backup_path', "Current Backup Path: {path}").format(path=backup_path_display))
+        self.game_dir_label.setText(self.loc['labels'].get('current_game_dir', 'Game Directory: {path}').format(path=game_dir_display))
+        self.save_path_label.setText(self.loc['labels'].get('current_save_path', 'Current Save Path: {path}').format(path=save_path_display))
+        self.backup_path_label.setText(self.loc['labels'].get('current_backup_path', 'Current Backup Path: {path}').format(path=backup_path_display))
 
     def update_view(self, save_files: List[Dict[str, Any]]):
         self.current_save_files = save_files
@@ -173,6 +187,7 @@ class SaveSelectorWidget(QWidget):
         
         # Update text
         self.refresh_button.setText(self.loc['buttons']['refresh'])
+        self.select_game_dir_btn.setText(self.loc['buttons'].get('select_game_dir', 'Set Game Directory'))
         self.select_save_folder_btn.setText(self.loc['buttons']['select_save_folder'])
         self.select_backup_folder_btn.setText(self.loc['buttons']['select_backup_folder'])
         self.user_id_label.setText(self.loc['labels']['user_id_input'])
@@ -197,16 +212,85 @@ class SaveSelectorWidget(QWidget):
         if not self.user_id_input.text().strip():
             self.user_id_input.setText(id_from_selection)
 
+    def _derive_save_path_from_game_dir(self) -> str:
+        """从游戏安装目录推导存档路径。"""
+        if not self.game_install_path:
+            return None
+        
+        game_dir = Path(self.game_install_path)
+        # 如果选的目录本身就含 Saved，说明已经接近存档位置
+        saved_path = game_dir / "Saved" / "SaveGames"
+        if saved_path.exists():
+            return str(saved_path)
+        
+        # 如果选的是游戏根目录（含 OakGame）
+        oak_path = game_dir / "OakGame" / "Binaries" / "Win64" / "Borderlands 4" / "Saved" / "SaveGames"
+        if oak_path.exists():
+            return str(oak_path)
+        
+        # 如果选的是 OakGame 目录
+        bin_path = game_dir / "Binaries" / "Win64" / "Borderlands 4" / "Saved" / "SaveGames"
+        if bin_path.exists():
+            return str(bin_path)
+        
+        # 如果选的是 Win64/Borderlands 4 目录
+        direct_saved = game_dir / "Saved" / "SaveGames"
+        if direct_saved.exists():
+            return str(direct_saved)
+        
+        return None
+
+    def _check_initial_game_dir(self):
+        """启动时检查是否需要设定游戏目录。"""
+        # 如果已有 custom_save_path 或 game_install_path，不需要提示
+        if self.custom_save_path or self.game_install_path:
+            return
+        
+        msg = self.loc.get('dialogs', {}).get('game_dir_needed', 
+            'Game save location has been changed in a recent update.\n'
+            'Please set your Borderlands 4 game directory to locate saves.\n\n'
+            'You can select any folder under the Borderlands 4 installation.')
+        QMessageBox.information(self, 
+            self.loc.get('dialogs', {}).get('game_dir_needed_title', 'Set Game Directory'), 
+            msg)
+        self._on_select_game_dir_clicked()
+
+    def _on_select_game_dir_clicked(self):
+        """选择游戏安装目录，智能判断路径层级。"""
+        dir_path = QFileDialog.getExistingDirectory(
+            self, 
+            self.loc['buttons'].get('select_game_dir', 'Set Game Directory')
+        )
+        if not dir_path:
+            return
+        
+        path_obj = Path(dir_path)
+        self.game_install_path = str(path_obj)
+        
+        # 尝试从选择的目录推导存档路径
+        derived_path = self._derive_save_path_from_game_dir()
+        if derived_path:
+            info_msg = self.loc.get('dialogs', {}).get('game_dir_found',
+                'Save folder auto-detected at:\n{path}').format(path=derived_path)
+            QMessageBox.information(self, 
+                self.loc.get('dialogs', {}).get('success', 'Success'), 
+                info_msg)
+        else:
+            warn_msg = self.loc.get('dialogs', {}).get('game_dir_not_found',
+                'Could not auto-detect save folder from the selected directory.\n'
+                'You may need to use "Select Save Folder" to manually choose the SaveGames folder.')
+            QMessageBox.warning(self, 
+                self.loc.get('dialogs', {}).get('warning', 'Warning'), 
+                warn_msg)
+        
+        self._save_config()
+        self._update_path_labels()
+        self.refresh_button.click()
+
     def _on_select_save_folder_clicked(self):
         dir_path = QFileDialog.getExistingDirectory(self, self.loc['buttons']['select_save_folder'])
         if dir_path:
-            path_obj = Path(dir_path)
-            if path_obj.name != "SaveGames":
-                msg = self.loc.get('dialogs', {}).get('folder_name_warning', "Selected folder must be named 'SaveGames'.")
-                QMessageBox.warning(self, self.loc['dialogs']['error'] if 'error' in self.loc.get('dialogs', {}) else "Warning", msg)
-                return
-            
-            self.custom_save_path = str(path_obj)
+            self.custom_save_path = str(Path(dir_path))
             self._save_config()
             self._update_path_labels()
             self.refresh_button.click() # Trigger refresh
@@ -219,7 +303,10 @@ class SaveSelectorWidget(QWidget):
             self._update_path_labels()
 
     def get_custom_save_path(self):
-        return self.custom_save_path
+        """返回存档路径，优先 custom_save_path，其次从 game_install_path 推导。"""
+        if self.custom_save_path:
+            return self.custom_save_path
+        return self._derive_save_path_from_game_dir()
 
     def get_custom_backup_path(self):
         return self.custom_backup_path
@@ -229,20 +316,11 @@ class SaveSelectorWidget(QWidget):
         打开文件选择对话框，让用户手动选择存档文件。
         """
         # 尝试定位到默认的存档路径作为起始目录
-        start_dir = self.custom_save_path if self.custom_save_path else os.path.expanduser('~/Documents')
-        
-        if not self.custom_save_path:
-            possible_paths = [
-                os.path.join(start_dir, "My Games", "Borderlands 4", "Saved", "SaveGames"),
-                start_dir
-            ]
-            initial_path = start_dir
-            for p in possible_paths:
-                if os.path.exists(p):
-                    initial_path = p
-                    break
+        resolved_path = self.get_custom_save_path()
+        if resolved_path and os.path.exists(resolved_path):
+            initial_path = resolved_path
         else:
-            initial_path = start_dir
+            initial_path = os.path.expanduser('~')
 
         file_path, _ = QFileDialog.getOpenFileName(
             self,

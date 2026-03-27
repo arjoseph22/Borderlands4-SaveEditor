@@ -675,16 +675,7 @@ class MainWindow(QMainWindow):
         if custom_save and os.path.exists(custom_save):
             initial_path = custom_save
         else:
-            start_dir = os.path.expanduser('~/Documents')
-            possible_paths = [
-                os.path.join(start_dir, "My Games", "Borderlands 4", "Saved", "SaveGames"),
-                start_dir
-            ]
-            initial_path = start_dir
-            for p in possible_paths:
-                if os.path.exists(p):
-                    initial_path = p
-                    break
+            initial_path = os.path.expanduser('~')
 
         file_path, _ = QFileDialog.getOpenFileName(
             self,

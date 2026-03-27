@@ -142,6 +142,10 @@ class QtCharacterTab(QWidget):
         
         main_layout.addLayout(presets_layout)
 
+        # 游戏大更新后预设功能暂时失效，隐藏预设区域
+        self.ui_groups['world_presets'].setVisible(False)
+        self.ui_groups['char_presets'].setVisible(False)
+
     def _show_change_class_popup(self):
         dialog = QDialog(self)
         dialog.setWindowTitle(self.loc['dialogs']['change_class_title'])

@@ -10,6 +10,7 @@
     "buttons": {
       "refresh": "Refresh",
       "open": "Open with Selected Save and ID",
+      "select_game_dir": "Set Game Directory",
       "select_save_folder": "Select Save Folder",
       "select_backup_folder": "Select Backup Folder"
     },
@@ -18,11 +19,19 @@
       "status_loading": "Scanning save directory...",
       "status_no_saves": "No save files found.",
       "status_found_saves": "Found {count} save file(s).",
+      "current_game_dir": "Game Directory: {path}",
       "current_save_path": "Current Save Path: {path}",
-      "current_backup_path": "Current Backup Path: {path}"
+      "current_backup_path": "Current Backup Path: {path}",
+      "not_set": "Not Set"
     },
     "dialogs": {
-      "folder_name_warning": "Selected folder must be named 'SaveGames'."
+      "folder_name_warning": "Selected folder must be named 'SaveGames'.",
+      "success": "Success",
+      "warning": "Warning",
+      "game_dir_needed_title": "Set Game Directory",
+      "game_dir_needed": "Game save location has been changed in a recent update.\nPlease set your Borderlands 4 game directory to locate saves.\n\nYou can select any folder under the Borderlands 4 installation.",
+      "game_dir_found": "Save folder auto-detected at:\n{path}",
+      "game_dir_not_found": "Could not auto-detect save folder from the selected directory.\nYou may need to use 'Select Save Folder' to manually choose the SaveGames folder."
     },
     "placeholders": {
       "user_id_input": "Enter here if auto-detected ID is incorrect"
@@ -159,7 +168,7 @@
       "skip_story": "Skip Story Missions",
       "skip_all": "Skip All Missions",
       "change_class": "Change Character Class",
-      "max_level": "Max Level (Level 50)",
+      "max_level": "Max Level (Level 60)",
       "max_sdu": "Max SDU",
       "unlock_vault": "Unlock All Vault Gates",
       "unlock_vehicles": "Unlock All Hover Drives",

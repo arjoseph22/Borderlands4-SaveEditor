@@ -295,9 +295,6 @@ class SaveGameController:
             target_path = None
             if custom_path and os.path.exists(custom_path) and os.path.isdir(custom_path):
                 target_path = Path(custom_path)
-            else:
-                documents_path = os.path.expanduser('~/Documents')
-                target_path = Path(documents_path) / "My Games" / "Borderlands 4" / "Saved" / "SaveGames"
 
             if not target_path or not target_path.is_dir():
                 return []
