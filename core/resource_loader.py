@@ -205,7 +205,7 @@ def load_all_skill_descriptions() -> Dict[str, Dict[str, str]]:
         一个以技能英文名为键，包含中英文描述的字典
     """
     all_skills = {}
-    characters = ['Amon', 'Vex', 'Harlowe', 'Rafa']
+    characters = ['Amon', 'Vex', 'Harlowe', 'Rafa', 'C4sh']
     
     # 从Skills.csv加载英文名→中文名的映射
     skills_csv = load_class_mods_csv("Skills.csv")

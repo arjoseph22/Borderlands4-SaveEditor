@@ -110,8 +110,8 @@ class QtClassModEditorTab(QWidget):
     add_to_backpack_requested = pyqtSignal(str, str)
     
     # 职业ID常量
-    CLASS_IDS = {'Amon': 255, 'Harlowe': 259, 'Rafa': 256, 'Vex': 254}
-    CLASS_NAMES = ['Amon', 'Harlowe', 'Rafa', 'Vex']  # 保持顺序一致
+    CLASS_IDS = {'Amon': 255, 'Harlowe': 259, 'Rafa': 256, 'Vex': 254, 'C4sh': 404}
+    CLASS_NAMES = ['Amon', 'Harlowe', 'Rafa', 'Vex', 'C4sh']  # 保持顺序一致
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -595,7 +595,8 @@ class QtClassModEditorTab(QWidget):
                     "Vex": {"Common": 217, "Uncommon": 218, "Rare": 219, "Epic": 220},
                     "Rafa": {"Common": 66, "Uncommon": 67, "Rare": 68, "Epic": 69},
                     "Harlowe": {"Common": 224, "Uncommon": 223, "Rare": 222, "Epic": 221},
-                    "Amon": {"Common": 70, "Uncommon": 69, "Rare": 68, "Epic": 67}
+                    "Amon": {"Common": 70, "Uncommon": 69, "Rare": 68, "Epic": 67},
+                    "C4sh": {"Common": 52, "Uncommon": 53, "Rare": 54, "Epic": 55}
                 }
                 rarity_code_val = PER_CLASS_RARITIES.get(current_class_en, {}).get(rarity_en, "")
             rarity_chunk = f"{{{rarity_code_val}}}" if rarity_code_val else ""
@@ -821,7 +822,7 @@ class QtClassModEditorTab(QWidget):
     def get_skill_icon(self, skill_name, class_name):
         # Preserve accented Latin characters (Spanish) for proper icon matching
         safe_name = re.sub(r"[^a-zA-Z0-9_!áéíóúñÁÉÍÓÚÑ]", "", skill_name.replace("'", "").replace("'", "").replace(" ", "_")).lower()
-        suffix_map = {"Vex": "_1", "Rafa": "_2", "Harlowe": "_3", "Amon": "_4"}
+        suffix_map = {"Vex": "_1", "Rafa": "_2", "Harlowe": "_3", "Amon": "_4", "C4sh": "_5"}
         suffix = suffix_map.get(class_name, "")
         filename = f"{safe_name}{suffix}.png"
         
