@@ -25,6 +25,13 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 267,11,Legendary Perk,"Ninja Speed","Consecutive hits grant +10% movement speed for a short duration, stacks up to 7 times"
 267,12,Rarity,Legendary,"Sho Kunai skin"
 267,13,Perk,"Repeater Augment","Spawns additional Grenades while midflight"
+267,14,Legendary Perk,Bismuth,Attaches on Hit. Enemies take 15% more Shock damage for each attached Dagger.
+267,15,Legendary Perk,Bismuth,Attaches on Hit. Enemies take 15% more Radiation damage for each attached Dagger.
+267,16,Legendary Perk,Bismuth,Attaches on Hit. Enemies take 15% more Fire damage for each attached Dagger.
+267,17,Legendary Perk,Bismuth,Attaches on Hit. Enemies take 15% more Cryo damage for each attached Dagger.
+267,18,Legendary Perk,Bismuth,Attaches on Hit. Enemies take 15% more Corrosive damage for each attached Dagger.
+267,19,Perk,"Jakobs","Grenades deal critical damage when hitting weak points(Bismuth)"
+267,20,Rarity,Legendary,Bismuth skin
 270,1,Rarity,Common,
 270,2,Rarity,Uncommon,
 270,3,Rarity,Rare,
@@ -70,6 +77,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 291,8,Legendary Perk,"Waterfall","Causes additional explosions when damaging targets"
 291,9,Rarity,Legendary,"Waterfall skin"
 291,10,Perk,"Vladof","Grenade explodes on impact"
+291,11,Legendary Perk,Tentacles,Deals Skill Damage
+291,12,Rarity,Legendary,Barb'ara skin
 298,1,Rarity,Common,
 298,2,Rarity,Uncommon,
 298,3,Rarity,Rare,

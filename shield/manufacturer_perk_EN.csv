@@ -9,6 +9,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 279,8,Legendary Perk,Psychosis,"When damaged, gain +15% Elemental Resistance and +50% Resistance to the last damage type received for 5s"
 279,9,Rarity,Legendary,Pandoran Memento skin
 279,10,Rarity,Legendary,Extra Medium skin
+279,11,Legendary Perk,Moonfall,“When dealing Melee Damage, spawn a Meteor Cluster to fall on the damaged enemy”
+279,12,Rarity,Legendary,Elpis Star skin
 283,1,Rarity,Common,
 283,2,Rarity,Uncommon,
 283,3,Rarity,Rare,
@@ -75,6 +77,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 312,8,Legendary Perk,Power Play,"Gain Overshield when Energy Shield fills. When Energy Shield is full, gain +25% Fire Rate, +25% Movement Speed, and regenerate 1 Ammo/s"
 312,9,Rarity,Legendary,Super Soldier skin
 312,10,Model,/,
+312,11,Rarity,Legendary,Honey Badger skin
+312,12,Legendary Perk,Ferocity,Reduces self-Damage dealt by 90% while Shield is active
 321,1,Rarity,Common,
 321,2,Rarity,Uncommon,
 321,3,Rarity,Rare,

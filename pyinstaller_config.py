@@ -78,6 +78,7 @@ a = Analysis(
         ('class_mods/*.json', 'class_mods'),
         ('class_mods/*.csv', 'class_mods'),
         ('class_mods/Amon/*.png', 'class_mods/Amon'),
+        ('class_mods/C4sh/*.png', 'class_mods/C4sh'),
         ('class_mods/Harlowe/*.png', 'class_mods/Harlowe'),
         ('class_mods/Rafa/*.png', 'class_mods/Rafa'),
         ('class_mods/Vex/*.png', 'class_mods/Vex'),

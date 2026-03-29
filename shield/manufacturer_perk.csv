@@ -9,6 +9,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 279,8,Legendary Perk,精神错乱,受到伤害时，获得+15%元素抗性和+50%抗性（针对最后所受伤害类型），持续5秒
 279,9,Rarity,Legendary,潘多拉纪念品皮肤
 279,10,Rarity,Legendary,超大中杯皮肤
+279,11,Legendary Perk,星屑坠落,造成近战伤害时，生成流星星团砸向受伤害的敌人
+279,12,Rarity,Legendary,厄尔皮斯之星皮肤
 283,1,Rarity,Common,
 283,2,Rarity,Uncommon,
 283,3,Rarity,Rare,
@@ -75,6 +77,8 @@ Manufacturer ID,Part_ID,Part_type,Stat,Description
 312,8,Legendary Perk,优势局面,当能量护盾填充时，获得超强护盾。当能量护盾全满时，获得25%射速、25%移动速度，同时每秒恢复1弹药
 312,9,Rarity,Legendary,超级士兵皮肤
 312,10,Model,/,
+312,11,Rarity,Legendary,蜜獾皮肤
+312,12,Legendary Perk,凶猛,启用护盾时自我伤害降低90%
 321,1,Rarity,Common,
 321,2,Rarity,Uncommon,
 321,3,Rarity,Rare,
