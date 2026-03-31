@@ -149,7 +149,8 @@
       "spec_level": "Spec Level:",
       "spec_points": "Spec Points:",
       "money": "Money:",
-      "eridium": "Eridium:"
+      "eridium": "Eridium:",
+      "xp_auto_hint": "Enter your target level to auto-calculate the required XP"
     },
     "buttons": {
       "apply_changes": "Apply Character & Currency Changes",

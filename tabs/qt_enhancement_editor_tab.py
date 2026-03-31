@@ -14,6 +14,7 @@ class QtEnhancementEditorTab(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.current_lang = 'zh-CN'
+        self._character_level = "50"
         self.localization_data = self._load_game_localization()
         self.ui_loc = self._load_ui_localization()
         self.perk_vars = {}
@@ -137,7 +138,7 @@ class QtEnhancementEditorTab(QWidget):
 
         level_layout = QVBoxLayout()
         level_layout.addWidget(QLabel(self.ui_loc['labels']['level']))
-        self.level_edit = QLineEdit("50")
+        self.level_edit = QLineEdit(self._character_level)
         self.level_edit.textChanged.connect(self.rebuild_output)
         level_layout.addWidget(self.level_edit)
         mfg_rarity_layout.addLayout(level_layout)
@@ -411,8 +412,8 @@ class QtEnhancementEditorTab(QWidget):
         if not mfg_en: return
         mfg_code = enhancement_data['manufacturers'][mfg_en]['code']
         
-        level_val = self.level_edit.text() if hasattr(self, 'level_edit') else "50"
-        if not level_val: level_val = "50"
+        level_val = self.level_edit.text() if hasattr(self, 'level_edit') else self._character_level
+        if not level_val: level_val = self._character_level
         
         parts.append(f"{mfg_code}, 0, 1, {level_val}| 2, {self.rnd_seed}||")
         rarity_en = self._get_current_rarity_en_name()
@@ -506,3 +507,9 @@ class QtEnhancementEditorTab(QWidget):
             return
         flag = self.flag_var.currentText().split(" ")[0]
         self.add_to_backpack_requested.emit(serial, flag)
+
+    def set_character_level(self, level: str):
+        """设置角色等级，更新默认等级显示。"""
+        self._character_level = level if level else "50"
+        if hasattr(self, 'level_edit'):
+            self.level_edit.setText(self._character_level)

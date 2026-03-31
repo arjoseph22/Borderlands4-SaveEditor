@@ -1,11 +1,38 @@
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QLabel, QLineEdit, QPushButton, 
-    QGroupBox, QFormLayout, QComboBox, QDialog, QDialogButtonBox
+    QGroupBox, QFormLayout, QComboBox, QDialog, QDialogButtonBox, QSizePolicy
 )
 from PyQt6.QtCore import pyqtSignal, Qt
 from typing import Dict, Any
 from core.unlock_data import CHARACTER_CLASSES
 from core import resource_loader
+
+# --- XP Calculation ---
+_XP_MULTIPLIER = 60.0
+_XP_POWER = 2.8
+_XP_OFFSET = 7.33
+
+# Hardcoded cumulative XP for levels 1-10 (formula doesn't fit these)
+_XP_TABLE_1_10 = {
+    1: 0,
+    2: 857,
+    3: 1740,
+    4: 3349,
+    5: 5875,
+    6: 9496,
+    7: 14385,
+    8: 20707,
+    9: 28625,
+    10: 38297,
+}
+
+def calc_xp_for_level(level: int) -> int:
+    """Return the minimum cumulative XP required to reach *level*."""
+    if level < 1:
+        return 0
+    if level <= 10:
+        return _XP_TABLE_1_10.get(level, 0)
+    return int(_XP_MULTIPLIER * (level ** _XP_POWER + _XP_OFFSET))
 
 class QtCharacterTab(QWidget):
     character_data_changed = pyqtSignal(dict)
@@ -47,11 +74,25 @@ class QtCharacterTab(QWidget):
         self.ui_labels['difficulty'] = QLabel(self.loc['labels']['difficulty'])
         char_form_layout.addRow(self.ui_labels['difficulty'], self.difficulty_edit)
         
+        # --- Level + XP row (half-width inputs with hint) ---
+        level_xp_row = QHBoxLayout()
         self.ui_labels['level'] = QLabel(self.loc['labels']['level'])
-        char_form_layout.addRow(self.ui_labels['level'], self.level_edit)
-        
+        self.level_edit.setMaximumWidth(80)
         self.ui_labels['xp'] = QLabel(self.loc['labels']['xp'])
-        char_form_layout.addRow(self.ui_labels['xp'], self.xp_edit)
+        self.xp_edit.setMaximumWidth(120)
+        self.xp_edit.setReadOnly(True)
+
+        self.ui_labels['xp_auto_hint'] = QLabel(self.loc['labels']['xp_auto_hint'])
+        self.ui_labels['xp_auto_hint'].setStyleSheet("color: orange; font-style: italic;")
+        self.ui_labels['xp_auto_hint'].setWordWrap(True)
+        self.ui_labels['xp_auto_hint'].setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+
+        level_xp_row.addWidget(self.ui_labels['level'])
+        level_xp_row.addWidget(self.level_edit)
+        level_xp_row.addWidget(self.ui_labels['xp'])
+        level_xp_row.addWidget(self.xp_edit)
+        level_xp_row.addWidget(self.ui_labels['xp_auto_hint'])
+        char_form_layout.addRow(level_xp_row)
         
         self.ui_labels['spec_level'] = QLabel(self.loc['labels']['spec_level'])
         char_form_layout.addRow(self.ui_labels['spec_level'], self.spec_level_edit)
@@ -60,6 +101,9 @@ class QtCharacterTab(QWidget):
         char_form_layout.addRow(self.ui_labels['spec_points'], self.spec_points_edit)
         
         main_layout.addWidget(self.ui_groups['character_info'])
+
+        # Connect level change -> auto-calc XP
+        self.level_edit.textChanged.connect(self._on_level_changed)
         
         # --- 货币区 ---
         self.ui_groups['currency'] = QGroupBox(self.loc['groups']['currency'])
@@ -179,7 +223,7 @@ class QtCharacterTab(QWidget):
             # Fallback
             self.loc = {
                 "groups": {"character_info": "Character", "currency": "Currency", "world_presets": "World", "char_presets": "Character"},
-                "labels": {"name": "Name:", "difficulty": "Difficulty:", "level": "Level:", "xp": "XP:", "spec_level": "Spec Level:", "spec_points": "Spec Points:", "money": "Money:", "eridium": "Eridium:"},
+                "labels": {"name": "Name:", "difficulty": "Difficulty:", "level": "Level:", "xp": "XP:", "spec_level": "Spec Level:", "spec_points": "Spec Points:", "money": "Money:", "eridium": "Eridium:", "xp_auto_hint": "Enter your target level to auto-calculate the required XP"},
                 "buttons": {"apply_changes": "Apply Changes", "sync_levels": "Sync Item Levels"},
                 "warnings": {"sync_warning": "Warning: May unequip items."},
                 "presets": {"clear_fog": "Clear Fog", "discover_locs": "Discover Locations", "unlock_safehouses": "Unlock Safehouses", 
@@ -207,6 +251,7 @@ class QtCharacterTab(QWidget):
         self.ui_labels['difficulty'].setText(self.loc['labels']['difficulty'])
         self.ui_labels['level'].setText(self.loc['labels']['level'])
         self.ui_labels['xp'].setText(self.loc['labels']['xp'])
+        self.ui_labels['xp_auto_hint'].setText(self.loc['labels']['xp_auto_hint'])
         self.ui_labels['spec_level'].setText(self.loc['labels']['spec_level'])
         self.ui_labels['spec_points'].setText(self.loc['labels']['spec_points'])
         self.ui_labels['money'].setText(self.loc['labels']['money'])
@@ -233,12 +278,35 @@ class QtCharacterTab(QWidget):
         self.cur_paths = data.get('cur_paths', {})
         self.name_edit.setText(data.get("名称", ""))
         self.difficulty_edit.setText(data.get("难度", ""))
+
+        # Block signals while loading to avoid triggering auto-calc
+        self.level_edit.blockSignals(True)
         self.level_edit.setText(data.get("角色等级", ""))
+        self.level_edit.blockSignals(False)
+        # Show the actual XP from save (original value)
         self.xp_edit.setText(data.get("角色经验值", ""))
+        # Store the original save XP so we know when user hasn't changed level
+        self._original_level = data.get("角色等级", "")
+        self._original_xp = data.get("角色经验值", "")
+
         self.spec_level_edit.setText(data.get("专精等级", ""))
         self.spec_points_edit.setText(data.get("专精点数", ""))
         self.money_edit.setText(data.get("金钱", ""))
         self.eridium_edit.setText(data.get("镒矿", ""))
+
+    def _on_level_changed(self, text: str):
+        """When the user edits the level, auto-calculate XP."""
+        text = text.strip()
+        if not text:
+            return
+        try:
+            level = int(text)
+            if level < 1:
+                level = 1
+            xp = calc_xp_for_level(level)
+            self.xp_edit.setText(str(xp))
+        except ValueError:
+            pass  # ignore non-numeric input
     
     def _on_apply_changes(self):
         """收集UI数据并发出信号。"""

@@ -149,7 +149,8 @@
       "spec_level": "专精等级:",
       "spec_points": "专精点数:",
       "money": "金钱:",
-      "eridium": "镒矿:"
+      "eridium": "镒矿:",
+      "xp_auto_hint": "输入你所目标的等级，则可自动化完成经验值计算"
     },
     "buttons": {
       "apply_changes": "应用角色与货币更改",

@@ -116,6 +116,7 @@ class QtClassModEditorTab(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.current_lang = 'zh-CN'
+        self._character_level = "50"
         
         self.ui_loc = self._load_ui_localization()
         self.localization = self._load_localization()  # 仅用于职业/稀有度名称
@@ -295,7 +296,7 @@ class QtClassModEditorTab(QWidget):
         # Level
         level_group = QGroupBox(self.ui_loc['top_controls']['level'])
         level_layout = QVBoxLayout(level_group)
-        self.level_edit = QLineEdit("50")
+        self.level_edit = QLineEdit(self._character_level)
         level_layout.addWidget(self.level_edit)
         top_controls_layout.addWidget(level_group)
 
@@ -573,8 +574,8 @@ class QtClassModEditorTab(QWidget):
             current_class_en = self._get_current_class_en()
             current_class_id = str(self.CLASS_IDS.get(current_class_en, 0))
             
-            level_val = self.level_edit.text() if hasattr(self, 'level_edit') else "50"
-            if not level_val: level_val = "50"
+            level_val = self.level_edit.text() if hasattr(self, 'level_edit') else self._character_level
+            if not level_val: level_val = self._character_level
             header = f"{self.CLASS_IDS[current_class_en]}, 0, 1, {level_val}| 2, {self.seed_edit.text()}||"
             
             rarity_en = self._get_english_key(self.rarity_combo.currentText())
@@ -908,3 +909,9 @@ class QtClassModEditorTab(QWidget):
             
             self.skill_tree.setItemWidget(item, 3, sp_widget)
             self.skill_widgets[skill_en] = item
+
+    def set_character_level(self, level: str):
+        """设置角色等级，更新默认等级显示。"""
+        self._character_level = level if level else "50"
+        if hasattr(self, 'level_edit'):
+            self.level_edit.setText(self._character_level)

@@ -5,7 +5,7 @@ import itertools
 import os
 from pathlib import Path
 
-VERSION = "3.4.7"
+VERSION = "3.4.7.2"
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QPushButton, QLabel, QLineEdit, QMessageBox, QFileDialog,
@@ -820,8 +820,21 @@ class MainWindow(QMainWindow):
         if not self.controller.yaml_obj: return
         self.log("Main window: Starting to refresh all tabs.")
         try:
-            self.character_tab.update_fields(self.controller.get_character_data())
+            char_data = self.controller.get_character_data()
+            self.character_tab.update_fields(char_data)
             self.log("  - Character tab refreshed.")
+            # 同步角色等级到所有编辑器Tab的默认等级
+            char_level = char_data.get("角色等级", "") if char_data else ""
+            if char_level:
+                level_sync_tabs = [
+                    self.class_mod_tab, self.enhancement_tab,
+                    self.grenade_tab, self.shield_tab, self.repkit_tab,
+                    self.heavy_weapon_tab, self.weapon_generator_tab,
+                ]
+                for tab in level_sync_tabs:
+                    if hasattr(tab, 'set_character_level'):
+                        tab.set_character_level(char_level)
+                self.log(f"  - Character level ({char_level}) synced to editor tabs.")
             self.items_tab.update_tree(self.controller.get_all_items())
             self.log("  - Items tab refreshed.")
             if hasattr(self, 'weapon_editor_tab'):

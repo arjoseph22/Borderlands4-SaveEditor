@@ -42,6 +42,7 @@ class QtWeaponGeneratorTab(QWidget):
         self.part_combos = {}
         self.legendary_frame = None # Initialize to None
         self.current_lang = 'zh-CN'
+        self._character_level = "50"
         
         # Main layout holds the content widget
         self.main_layout = QVBoxLayout(self)
@@ -107,7 +108,7 @@ class QtWeaponGeneratorTab(QWidget):
         # Save state
         current_mfg_idx = self.manufacturer_combo.currentIndex() if hasattr(self, 'manufacturer_combo') else 0
         current_wt_idx = self.weapon_type_combo.currentIndex() if hasattr(self, 'weapon_type_combo') else 0
-        current_level = self.level_var.text() if hasattr(self, 'level_var') else "50"
+        current_level = self.level_var.text() if hasattr(self, 'level_var') else self._character_level
         current_seed = self.seed_var.text() if hasattr(self, 'seed_var') else ""
         
         # Clean up internal references
@@ -178,7 +179,7 @@ class QtWeaponGeneratorTab(QWidget):
         controls_frame.layout().addWidget(QLabel(self.get_localized_string("weapon_type")))
         controls_frame.layout().addWidget(self.weapon_type_combo)
 
-        self.level_var = QLineEdit("50")
+        self.level_var = QLineEdit(self._character_level)
         self.seed_var = QLineEdit(str(random.randint(100, 9999)))
         random_seed_btn = QPushButton("🎲"); random_seed_btn.setFixedWidth(30)
         controls_frame.layout().addWidget(QLabel(self.get_localized_string("level")))
@@ -380,7 +381,7 @@ class QtWeaponGeneratorTab(QWidget):
             m_id = self._get_m_id(mfg_en, wt_en)
             if m_id is None: return
 
-            level = self.level_var.text() if self.level_var.text().isdigit() else "50"
+            level = self.level_var.text() if self.level_var.text().isdigit() else self._character_level
             seed = self.seed_var.text() if self.seed_var.text().isdigit() else str(random.randint(100, 9999))
             
             header = f"{m_id}, 0, 1, {level}| 2, {seed}||"
@@ -441,3 +442,9 @@ class QtWeaponGeneratorTab(QWidget):
         flag = self.flag_combo.currentText().split(" ")[0]
         # 发射信号，让主窗口去处理
         self.add_to_backpack_requested.emit(serial, flag)
+
+    def set_character_level(self, level: str):
+        """设置角色等级，更新默认等级显示。"""
+        self._character_level = level if level else "50"
+        if hasattr(self, 'level_var'):
+            self.level_var.setText(self._character_level)

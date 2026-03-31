@@ -39,6 +39,7 @@ class QtGrenadeEditorTab(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.current_lang = 'zh-CN'
+        self._character_level = "50"
         self.df_main, self.df_mfg, self.localization = load_grenade_data(self.current_lang)
         
         self._load_ui_localization()
@@ -148,7 +149,7 @@ class QtGrenadeEditorTab(QWidget):
 
     def _create_top_controls(self, layout):
         self.base_attrs_group = QGroupBox(self.ui_loc['groups']['base_attrs']); controls_layout = QHBoxLayout(self.base_attrs_group)
-        self.mfg_combo = QComboBox(); self.level_edit = QLineEdit("50"); self.rarity_combo = QComboBox()
+        self.mfg_combo = QComboBox(); self.level_edit = QLineEdit(self._character_level); self.rarity_combo = QComboBox()
         self.level_edit.setFixedWidth(100)
         self.rarity_combo.setFixedWidth(300)
         
@@ -443,3 +444,9 @@ class QtGrenadeEditorTab(QWidget):
         serial = self.b85_output_edit.text()
         if not serial or "Error" in serial or "错误" in serial: QMessageBox.warning(self, self.ui_loc['dialogs']['no_valid_code'], self.ui_loc['dialogs']['gen_first']); return
         self.add_to_backpack_requested.emit(serial, self.flag_combo.currentText().split(" ")[0])
+
+    def set_character_level(self, level: str):
+        """设置角色等级，更新默认等级显示。"""
+        self._character_level = level if level else "50"
+        if hasattr(self, 'level_edit'):
+            self.level_edit.setText(self._character_level)

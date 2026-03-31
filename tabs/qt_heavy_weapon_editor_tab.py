@@ -43,6 +43,7 @@ class QtHeavyWeaponEditorTab(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.current_lang = 'zh-CN'
+        self._character_level = "50"
         self.df_main, self.df_mfg, self.localization = load_heavy_weapon_data(self.current_lang)
         
         self._load_ui_localization()
@@ -185,7 +186,7 @@ class QtHeavyWeaponEditorTab(QWidget):
         controls_layout = QHBoxLayout(self.base_attrs_group)
         
         self.mfg_combo = QComboBox()
-        self.level_edit = QLineEdit("50")
+        self.level_edit = QLineEdit(self._character_level)
         self.level_edit.setFixedWidth(100)
         self.rarity_combo = QComboBox()
         self.rarity_combo.setFixedWidth(300)
@@ -563,3 +564,9 @@ class QtHeavyWeaponEditorTab(QWidget):
         for i in range(self.flag_combo.count()):
             if flags_map["3"] == self.flag_combo.itemText(i):
                 self.flag_combo.setCurrentIndex(i)
+
+    def set_character_level(self, level: str):
+        """设置角色等级，更新默认等级显示。"""
+        self._character_level = level if level else "50"
+        if hasattr(self, 'level_edit'):
+            self.level_edit.setText(self._character_level)
